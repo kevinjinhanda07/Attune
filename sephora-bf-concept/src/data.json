@@ -1,0 +1,27 @@
+{
+  "aisles": [
+    { "id": "makeup", "name": "Makeup", "upto": 50, "items": [
+      { "id": "lip", "name": "Matte lipstick, 12 shades", "was": 24, "now": 12 },
+      { "id": "cushion", "name": "Cushion foundation", "was": 42, "now": 25 },
+      { "id": "mascara", "name": "Lengthening mascara duo", "was": 30, "now": 18 },
+      { "id": "palette", "name": "Eyeshadow palette, 12 pans", "was": 58, "now": 29 }
+    ]},
+    { "id": "skincare", "name": "Skincare", "upto": 40, "items": [
+      { "id": "serum", "name": "Vitamin C serum, 30 ml", "was": 68, "now": 41 },
+      { "id": "cream", "name": "Barrier repair cream, 50 ml", "was": 52, "now": 34 },
+      { "id": "retinol", "name": "Retinol night oil, 30 ml", "was": 74, "now": 44 }
+    ]},
+    { "id": "fragrance", "name": "Fragrance", "upto": 40, "items": [
+      { "id": "edp", "name": "Amber eau de parfum, 50 ml", "was": 110, "now": 66 },
+      { "id": "roller", "name": "Rollerball trio, 3 × 10 ml", "was": 45, "now": 27 }
+    ]},
+    { "id": "hair", "name": "Hair", "upto": 40, "items": [
+      { "id": "mask", "name": "Bond repair hair mask", "was": 36, "now": 22 },
+      { "id": "brush", "name": "Heated dryer brush", "was": 129, "now": 79 }
+    ]},
+    { "id": "tools", "name": "Tools", "upto": 50, "items": [
+      { "id": "brushset", "name": "Brush set, 8 pieces", "was": 64, "now": 32 },
+      { "id": "sponge", "name": "Blending sponge, pack of 4", "was": 20, "now": 10 }
+    ]}
+  ]
+}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Friday Concept</title>
+<meta name="description" content="Unofficial design concept for a Sephora Black Friday page. Not affiliated with Sephora.">
+<style>/*CSS*/</style>
+</head>
+<body>
+<div class="curtain" aria-hidden="true"></div>
+
+<p class="notice">Unofficial design concept. Not affiliated with or endorsed by Sephora. Deals, prices and dates are samples.</p>
+
+<header class="bar">
+  <a class="wordmark" href="#top">SEPHORA</a>
+  <nav aria-label="Sections">
+    <a href="#deals">Deals</a>
+    <a href="#haul">Your haul</a>
+    <a href="#sets">Gift sets</a>
+    <a href="#members">Members</a>
+  </nav>
+  <a class="btn btn-ink" href="#deals">Shop the sale</a>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-copy">
+      <h1 id="h1" class="display">Black Friday at Sephora</h1>
+      <p class="lede">Up to 50% off makeup, skincare and fragrance. Friday 27 to Monday 30 November, online and in every store.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="#deals">Shop the sale</a>
+        <a class="link" href="#members">Members shop from Wednesday</a>
+      </div>
+    </div>
+    <figure class="hero-metal">
+      <div id="metal" class="metal" role="img" aria-label="A lipstick in liquid chrome, turning slowly"></div>
+      <figcaption>Matte lipstick, 12 shades. $24, now $12.</figcaption>
+    </figure>
+  </section>
+
+  <section class="doors paper" id="doors" aria-labelledby="doors-h">
+    <div class="doors-main">
+      <h2 id="doors-h" class="h2 rise">Doors open Friday at 6am</h2>
+      <div class="clock rise" id="clock" aria-live="off">
+        <div><span data-u="d">23</span><small>days</small></div>
+        <div><span data-u="h">00</span><small>hours</small></div>
+        <div><span data-u="m">00</span><small>minutes</small></div>
+        <div><span data-u="s">00</span><small>seconds</small></div>
+      </div>
+      <p class="body rise" id="clock-note">Until 6am on Friday 27 November, your local time. The site opens the same minute as the stores.</p>
+    </div>
+    <dl class="hours rise">
+      <div><dt>Friday 27</dt><dd>6am – 11pm</dd></div>
+      <div><dt>Saturday 28</dt><dd>8am – 10pm</dd></div>
+      <div><dt>Sunday 29</dt><dd>10am – 8pm</dd></div>
+      <div><dt>Monday 30</dt><dd>Online only, until midnight</dd></div>
+    </dl>
+  </section>
+
+  <section class="deals" id="deals" aria-labelledby="deals-h">
+    <div class="deals-head">
+      <h2 id="deals-h" class="h2 rise">The deals, by aisle</h2>
+      <p class="body rise">Every price below is the sale price for all four days. Doorbusters are limited to two per customer.</p>
+    </div>
+    <!--DEALS-->
+  </section>
+
+  <section class="haul paper" id="haul" aria-labelledby="haul-h">
+    <div class="haul-pick">
+      <h2 id="haul-h" class="h2 rise">Build your haul</h2>
+      <p class="body rise">Tick what you're after and see what Friday saves you. Spend $75 and a six-piece mini set goes in the bag for free.</p>
+      <form class="picker" id="picker" aria-label="Choose products">
+        <!--PICKER-->
+      </form>
+    </div>
+    <aside class="tally" aria-labelledby="tally-h">
+      <h3 id="tally-h" class="h3">Your bag</h3>
+      <dl class="tally-nums" aria-live="polite">
+        <div><dt>Items</dt><dd id="t-count">0</dd></div>
+        <div><dt>You pay</dt><dd id="t-total">$0</dd></div>
+        <div class="saved"><dt>You save</dt><dd id="t-saved">$0</dd></div>
+        <div><dt>Insider points</dt><dd id="t-points">0</dd></div>
+      </dl>
+      <div class="gift">
+        <div class="gift-track"><div class="gift-fill" id="t-fill"></div></div>
+        <p id="t-gift">$75 to go for the free mini set.</p>
+      </div>
+      <a class="btn btn-ink btn-wide" href="#checkout" id="checkout">Check out</a>
+    </aside>
+  </section>
+
+  <section class="sets" id="sets" aria-labelledby="sets-h">
+    <div class="sets-head">
+      <h2 id="sets-h" class="h2 rise">Gift sets at half value</h2>
+      <p class="body rise">Four sets made for this weekend only, each priced at about half of what the full sizes would cost.</p>
+    </div>
+    <div class="sets-track" id="sets-track">
+      <article class="set">
+        <div class="set-art set-art-paper"><!--ART1--></div>
+        <h3 class="h3">The red lip set</h3>
+        <p class="body">Three matte lipsticks in the season's reds, with a lip liner. <strong>$38</strong>, worth $72.</p>
+      </article>
+      <article class="set">
+        <div class="set-art set-art-step"><!--ART2--></div>
+        <h3 class="h3">Night skin trio</h3>
+        <p class="body">Retinol oil, barrier cream and a cleansing balm, all full size. <strong>$55</strong>, worth $110.</p>
+      </article>
+      <article class="set">
+        <div class="set-art set-art-accent"><!--ART3--></div>
+        <h3 class="h3">Fragrance discovery</h3>
+        <p class="body">Eight sample vials and a voucher for the full bottle you choose. <strong>$32</strong>, worth $64.</p>
+      </article>
+      <article class="set">
+        <div class="set-art set-art-paper"><!--ART4--></div>
+        <h3 class="h3">The brush roll</h3>
+        <p class="body">Eight brushes for face and eyes in a roll-up case. <strong>$40</strong>, worth $85.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="members accent" id="members" aria-labelledby="members-h">
+    <h2 id="members-h" class="h2 rise">Members shop first</h2>
+    <ol class="queue">
+      <li class="rise"><span class="when">Wednesday 25, 6pm</span><span class="who">Rouge members</span></li>
+      <li class="rise"><span class="when">Thursday 26, noon</span><span class="who">VIB members</span></li>
+      <li class="rise"><span class="when">Thursday 26, 6pm</span><span class="who">Insiders</span></li>
+      <li class="rise"><span class="when">Friday 27, 6am</span><span class="who">Everyone</span></li>
+    </ol>
+    <div class="members-foot rise">
+      <p class="body">Joining Beauty Insider is free and takes a minute. Points earned this weekend count double.</p>
+      <a class="btn btn-ink" href="#join">Join for free</a>
+    </div>
+  </section>
+
+  <section class="faq paper" id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h" class="h2 rise">Before you shop</h2>
+    <div class="faq-list">
+      <details class="rise"><summary>Can I use a promo code on sale items?</summary><p>No. Sale prices already include the discount, so codes can't be added on top. Points and the free mini set still apply.</p></details>
+      <details class="rise"><summary>Is shipping free?</summary><p>Standard shipping is free on orders over $35 all weekend. Orders placed by Monday at midnight leave the warehouse within two days.</p></details>
+      <details class="rise"><summary>What if I want to return something?</summary><p>Anything bought between 25 and 30 November can be returned until 15 January, in store or by post, opened or not.</p></details>
+      <details class="rise"><summary>Is there a limit on how many I can buy?</summary><p>Doorbusters are limited to two of each product per customer. Everything else has no limit while stock lasts.</p></details>
+      <details class="rise"><summary>I bought something last week. Do I get the sale price?</summary><p>Yes. Bring your receipt or ask online and we'll refund the difference on anything bought from 13 November on.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot-word" aria-hidden="true">Black Friday</p>
+  <div class="foot-row">
+    <p>Sephora Black Friday, 27–30 November 2026.</p>
+    <p>Unofficial design concept, made as a test. Not affiliated with, sponsored or endorsed by Sephora. All deals, prices, dates and policies on this page are samples.</p>
+  </div>
+</footer>
+<script>/*JS*/</script>
+</body>
+</html>
