@@ -193,3 +193,66 @@ mm.add('(prefers-reduced-motion: no-preference) and (min-width: 901px)', () => {
 })
 
 window.addEventListener('load', () => ScrollTrigger.refresh())
+
+/* ---------- Liquid glass refraction ---------- */
+// Each glass element gets its own SVG displacement map: pixels near the rim are pushed
+// toward the centre, like light bending through the thick edge of a glass lens.
+const isChromium = !!window.chrome && CSS.supports('backdrop-filter', 'blur(1px)')
+const defs = document.getElementById('lg-defs')
+function lensMap(w, h, r, band) {
+  const c = document.createElement('canvas')
+  c.width = w; c.height = h
+  const ctx = c.getContext('2d')
+  const img = ctx.createImageData(w, h)
+  const hx = w / 2, hy = h / 2
+  const sdf = (x, y) => {
+    const qx = Math.abs(x - hx) - (hx - r), qy = Math.abs(y - hy) - (hy - r)
+    return Math.hypot(Math.max(qx, 0), Math.max(qy, 0)) + Math.min(Math.max(qx, qy), 0) - r
+  }
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const d = -sdf(x + 0.5, y + 0.5) // distance inside the edge
+    let dx = 0, dy = 0
+    if (d > 0 && d < band) {
+      const nx = sdf(x + 1.5, y + 0.5) - sdf(x - 0.5, y + 0.5)
+      const ny = sdf(x + 0.5, y + 1.5) - sdf(x + 0.5, y - 0.5)
+      const len = Math.hypot(nx, ny) || 1
+      const t = Math.pow(1 - d / band, 2)
+      dx = (nx / len) * t; dy = (ny / len) * t
+    }
+    const i = (y * w + x) * 4
+    img.data[i] = 128 + dx * 127; img.data[i + 1] = 128 + dy * 127; img.data[i + 2] = 128; img.data[i + 3] = 255
+  }
+  ctx.putImageData(img, 0, 0)
+  return c.toDataURL()
+}
+let glassId = 0
+function applyGlass(el) {
+  const rect = el.getBoundingClientRect()
+  const w = Math.round(rect.width), h = Math.round(rect.height)
+  if (!w || !h) return
+  const r = Math.min(parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0, h / 2, w / 2)
+  const band = Math.min(28, h / 2)
+  const id = el.dataset.glassId || (el.dataset.glassId = 'lg' + glassId++)
+  document.getElementById(id)?.remove()
+  const ns = 'http://www.w3.org/2000/svg'
+  const f = document.createElementNS(ns, 'filter')
+  f.setAttribute('id', id)
+  f.setAttribute('filterUnits', 'userSpaceOnUse'); f.setAttribute('primitiveUnits', 'userSpaceOnUse')
+  f.setAttribute('x', 0); f.setAttribute('y', 0); f.setAttribute('width', w); f.setAttribute('height', h)
+  f.setAttribute('color-interpolation-filters', 'sRGB')
+  f.innerHTML = `<feImage href="${lensMap(w, h, r, band)}" x="0" y="0" width="${w}" height="${h}" result="map"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="soft"/>
+    <feDisplacementMap in="soft" in2="map" scale="${Math.min(70, h * 0.9)}" xChannelSelector="R" yChannelSelector="G"/>`
+  defs.appendChild(f)
+  el.style.backdropFilter = `url(#${id}) saturate(185%) brightness(1.08)`
+}
+if (isChromium) {
+  const glassEls = [...document.querySelectorAll('[data-glass]')]
+  const run = () => glassEls.forEach(applyGlass)
+  document.fonts.ready.then(run)
+  let t
+  window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(run, 200) })
+}
+
+// the price tag floats gently over the chrome lipstick
+if (!reduce) gsap.to('.tag', { y: -14, duration: 2.6, ease: 'sine.inOut', yoyo: true, repeat: -1 })
