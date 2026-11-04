@@ -296,7 +296,7 @@ input[type=range]{width:100%;accent-color:var(--ink);margin:0}
         </div>
         <div class="map" id="map" aria-label="Paragraph map"></div>
         <div class="doclegend" id="doclegend"><span style="color:var(--faint)">In your doc:</span><span><i class="sw-sq" style="--tint:#A8F0A8"></i>Good</span><span><i class="sw-sq" style="--tint:#FFF59D"></i>Drifting</span><span><i class="sw-sq" style="--tint:#F7A8E6"></i>Off</span></div>
-        <div class="coloroff" id="coloroff" hidden><span>Document colors are off.</span><button id="colorOn">Turn on</button></div>
+        <div class="coloroff" id="coloroff" hidden><span id="coloroffText">Document colors are off.</span><button id="colorOn">Turn on</button></div>
         <div class="tiles" id="tiles"></div>
         <div class="est">Quick estimates · open a paragraph for Deep review</div>
       </div>
@@ -714,6 +714,7 @@ function scoreAll(texts,prof,s,thesis){
     if(g>hi){const p=(g-hi)*6;A+=p;add('A',p,`Hard for ${pn} to follow. Shorten it or explain the main idea.`)}
     else if(g<lo-2){const p=(lo-2-g)*4;A+=p;add('A',p,`May feel thin for ${pn}. Add one specific detail.`)}
     const fd=f.form-prof.form;
+    { const mid=(lo+hi)/2,half=(hi-lo)/2; A+=Math.max(0,Math.abs(g-mid)-half*.5)*2.2; A+=Math.abs(fd)*28; }
     if(Math.abs(fd)>.14){const p=(Math.abs(fd)-.14)*120;A+=p;
       if(fd>0)add('A',p,`Stiffer than ${pn} expect. Use plainer verbs.`);
       else if(f.slang.length)add('A',p,`Too casual for ${pn}: ${list(f.slang)}.`);
@@ -721,6 +722,7 @@ function scoreAll(texts,prof,s,thesis){
     if(!prof.jargon&&f.jargon.length){const n=f.jargon.reduce((a,b)=>a+b.n,0),p=n*8;A+=p;add('A',p,`Jargon they may not get: ${list(f.jargon)}.`,f.jargon.slice(0,4).map(j=>({from:j.term,to:JARGON[j.term]})))}
     if(f.slang.length&&prof.form>=.4&&!(Math.abs(fd)>.14)){const p=f.slang.length*6;A+=p;add('A',p,`Slang reads as careless: ${list(f.slang)}.`)}
     const [sl,sh]=prof.sent;
+    A+=Math.abs(f.wps-(sl+sh)/2)*.55;
     if(f.wps>sh){const p=(f.wps-sh)*1.6;A+=p;add('A',p,'Sentences run long for this reader. Split one.')}
     if(f.excl&&prof.form>=.4&&!prof.playful){const p=f.excl*6;A+=p;add('A',p,'Drop the exclamation marks.')}
     if(!prof.personal&&f.fR>4){const p=(f.fR-4)*2.2;A+=p;add('A',p,'Too much “I” for this reader.')}
@@ -732,6 +734,9 @@ function scoreAll(texts,prof,s,thesis){
       const onPoint=[...f.cw].some(w=>thesisW.has(w));
       if(!onPoint&&shared<2&&texts.length>2){X+=18;add('X',18,'Unclear how this supports your main point.')}
     }else if(shared===0&&F.filter(o=>o.ok).length>=3){X+=12;add('X',12,'Doesn’t connect to the rest of the piece.')}
+    if(F.filter(o=>o.ok).length>=3){const ratio=f.cw.size?shared/f.cw.size:1;X+=Math.max(0,.42-ratio)*42}
+    if(thesisW.size){const hit=[...f.cw].filter(w=>thesisW.has(w)).length;X+=Math.max(0,3-hit)*2.5}
+    if(f.nS===1&&f.nW>28)X+=6;
     /* Readability (flow + plain wording) */
     let R=0;
     if(f.longest>30){const p=8+(f.longest-30)*1.4;R+=p;add('R',p,`One ${f.longest}-word sentence. Break it up.`)}
@@ -746,9 +751,12 @@ function scoreAll(texts,prof,s,thesis){
       if(nr>6){const p=(nr-6)*2.5;R+=p;add('R',p,`Noun-heavy (${q(f.nominal[0])}). Use a verb instead.`)}
     }
     if(f.excl>1)R+=6;
+    if(f.wps>15)R+=(f.wps-15)*.9;
+    R+=Math.max(0,f.longW-.1)*55;
+    if(f.nS>=3&&f.sd<4)R+=(4-f.sd)*1.5;
     const unexplained=prof.jargon?0:f.jargon.length;
     const anyone=g<=9&&f.longest<=28&&f.longW<=.2?'Easy to follow':g<=13&&f.longest<=38?'Takes some effort':'Hard to follow';
-    const reader=g>hi+3||unexplained>=2?'Likely lost':g>hi||unexplained===1||f.wps>sh+4?'Might struggle':'Will understand';
+    const aRaw=100-A*s;const reader=g>hi+3||unexplained>=2||aRaw<50?'Likely lost':g>hi||unexplained===1||f.wps>sh+4||aRaw<75?'Might struggle':'Will understand';
     return {ok:true,f,A:clamp(100-A*s),X:clamp(100-X*s),R:clamp(100-R*s),notes,anyone,reader};
   });
   /* Voice: compare each paragraph's style with the rest of the document */
@@ -761,8 +769,8 @@ function scoreAll(texts,prof,s,thesis){
     if(others.length<2){r.V=100;return}
     const v=vec(r.f),m=v.map((_,k)=>med(others.map(o=>vec(o.f)[k])));const d=v.map((x,k)=>x-m[k]);
     const rms=Math.sqrt(d.reduce((a,x)=>a+x*x,0)/d.length);
-    r.V=clamp(100-Math.max(0,rms-.24)*170*s);
-    if(r.V<88){
+    r.V=clamp(100-Math.max(0,rms*95-14)*s);
+    if(r.V<80){
       const k=d.reduce((bi,x,j)=>Math.abs(x)>Math.abs(d[bi])?j:bi,0),up=d[k]>0,p=(100-r.V)*.9;
       const avgW=Math.round(med(others.map(o=>o.f.wps)));
       const msg={wps:up?'Much wordier sentences than your others.':'Choppier than your other paragraphs.',
@@ -789,6 +797,8 @@ const TAG={A:'Reader',X:'Focus',V:'Voice',R:'Clarity'};
 const NAME={A:'Audience',X:'Focus',V:'Voice',R:'Clarity'};
 const WT={A:.35,X:.3,V:.15,R:.2};
 const MIN_CHARS=250, POLL_MS=3000;
+// Optional hooks for other versions of Attune (the Google Docs version leaves these alone)
+const caps=()=>Object.assign({paint:true},window.ATTUNE_CAPS||{});
 const escH=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const focusLabel=v=>v>=85?'Focused':v>=70?'Mostly focused':v>=55?'Partly focused':'Unfocused';
 
@@ -866,6 +876,7 @@ function colorFor(i){
   return st.paint&&S.chars>=MIN_CHARS&&DOC_TINT[b]&&(b!=='fit'||st.paintGood)?DOC_TINT[b]:null;
 }
 async function paintDoc(full){
+  if(!caps().paint){S.coloredCount=0;statusLine();return}
   const want={};S.items.forEach((x,i)=>want[x.ci]=colorFor(i));
   const list=[];
   for(const ci in want){if(full||S.painted[ci]!==want[ci])list.push({ci:+ci,color:want[ci]})}
@@ -898,7 +909,11 @@ function render(){
   $('#vsub').textContent=`Your reader will understand ${ok.filter(r=>r.reader==='Will understand').length} of ${ok.length} paragraphs`;
   $('#tiles').innerHTML=KEYS.map(k=>{const v=avg(k);return `<div class="tile${on(k)?'':' off'}"><div class="tt">${NAME[k]}<b>${on(k)?v:'off'}</b></div><div class="bar"><i style="--c:${BANDC[band(v)]}"></i></div></div>`}).join('');
   requestAnimationFrame(()=>$('#tiles').querySelectorAll('.tile').forEach((t,j)=>{const k=KEYS[j];t.querySelector('i').style.transform=`scaleX(${on(k)?avg(k)/100:0})`}));
-  $('#coloroff').hidden=!!S.settings.paint;
+  const cp=caps();
+  $('#coloroff').hidden=cp.paint?!!S.settings.paint:false;
+  $('#coloroffText').textContent=cp.paint?'Document colors are off.':(cp.connectText||'Connect to color paragraphs.');
+  $('#colorOn').textContent=cp.paint?'Turn on':'Connect';
+  if(window.ATTUNE_ONSCORE)window.ATTUNE_ONSCORE(show?O:null,band(ok.length&&show?O:null));
   renderMap();renderLists();
   const n=KEYS.filter(on).length,w=R.reduce((s,r)=>s+(r.f?r.f.nW:0),0);
   $('#fmeta').textContent=`${n} check${n===1?'':'s'} · ${w} words`;
@@ -940,8 +955,9 @@ function card(i){
     if(!notes.length)tips='<li><span class="tag">Note</span><span>Nothing flagged.</span></li>';
     if(notes.length>2)tips+=`<li><button class="togtips">${all?'Show less':'Show '+(notes.length-2)+' more'}</button></li>`;
   }
+  const minis=act?`<div class="minis">${KEYS.map(k=>`<div class="mini${on(k)?'':' off'}"><div class="tt">${NAME[k]}<b>${on(k)?r[k]:'off'}</b></div><div class="bar"><i style="transform:scaleX(${on(k)?r[k]/100:0});--c:${BANDC[band(r[k])]}"></i></div></div>`).join('')}</div>`:'';
   const fl=on('X')?`<span class="flabel">${focusLabel(r.X)}</span>`:'';
-  c.innerHTML=`<div class="chead"><i class="sw-sq"></i><span class="p">¶${i+1}</span>${fl}<span class="sp"></span><button class="goto" title="Move your cursor to this paragraph">Go to<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></button><span class="score-pill">${v}</span></div><div class="quote">${escH(S.items[i].text)}</div>${und}${tips?`<ul class="tips">${tips}</ul>`:''}${act?deepHTML(i):''}`;
+  c.innerHTML=`<div class="chead"><i class="sw-sq"></i><span class="p">¶${i+1}</span>${fl}<span class="sp"></span><button class="goto" title="Move your cursor to this paragraph">Go to<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></button><span class="score-pill">${v}</span></div><div class="quote">${escH(S.items[i].text)}</div>${und}${minis}${tips?`<ul class="tips">${tips}</ul>`:''}${act?deepHTML(i):''}`;
   c.onclick=e=>{
     const sw=e.target.closest('.swap');if(sw){swap(i,sw.dataset.from,sw.dataset.to);return}
     if(e.target.closest('.goto')){jump(i);return}
@@ -1012,7 +1028,7 @@ async function jump(i){
   try{
     await call('focusParagraph',ci,FLASH);
     S.painted[ci]=FLASH;
-    setTimeout(()=>{if(S.items[i]&&S.items[i].ci===ci)call('paint',[{ci,color:colorFor(i)}]).then(()=>{S.painted[ci]=colorFor(i)}).catch(()=>{})},1400);
+    if(caps().paint)setTimeout(()=>{if(S.items[i]&&S.items[i].ci===ci)call('paint',[{ci,color:colorFor(i)}]).then(()=>{S.painted[ci]=colorFor(i)}).catch(()=>{})},1400);
   }catch(e){}
 }
 async function swap(i,from,to){
@@ -1051,7 +1067,9 @@ $('#presets').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;$('#aud
 $('#tone').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;S.settings.tone=b.dataset.v;syncControls();changed()};
 $('#genre').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;S.settings.genre=b.dataset.v;syncControls();changed()};
 $('#checks').onclick=e=>{const b=e.target.closest('.opt');if(!b)return;const k=b.dataset.k;S.settings.checks[k]=!on(k);syncControls();changed(false)};
-$('#colorOn').onclick=()=>{S.settings.paint=true;S.paintWarned=false;syncControls();render();paintDoc(true);saveSoon();toast('Coloring paragraphs in your document…')};
+$('#colorOn').onclick=()=>{
+  if(!caps().paint){call('connect').then(ok=>{if(ok){S.painted={};S.settings.paint=true;syncControls();render();paintDoc(true);toast('Connected. Coloring your document…')}}).catch(e=>toast(explain(e)));return}
+  S.settings.paint=true;S.paintWarned=false;syncControls();render();paintDoc(true);saveSoon();toast('Coloring paragraphs in your document…')};
 $('#paint').onclick=()=>{S.settings.paint=!S.settings.paint;syncControls();render();paintDoc(true);saveSoon()};
 $('#paintGood').onclick=()=>{S.settings.paintGood=!S.settings.paintGood;syncControls();paintDoc(true);saveSoon()};
 $('#lens').onchange=e=>{S.settings.lens=e.target.value;changed(false)};

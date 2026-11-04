@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Attune: check if your writing fits your reader</title>
+<meta name="description" content="Free tool that checks every paragraph of your essay, email or report against your target reader. See which paragraphs fit, which drift, and how to fix them. Works on the web, in Google Docs and in Word.">
+<link rel="canonical" href="https://kevinjinhanda07.github.io/Attune/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#FAFAF8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Attune">
+<meta property="og:title" content="Attune: check if your writing fits your reader">
+<meta property="og:description" content="Free tool that checks every paragraph of your essay, email or report against your target reader. See which paragraphs fit, which drift, and how to fix them. Works on the web, in Google Docs and in Word.">
+<meta property="og:url" content="https://kevinjinhanda07.github.io/Attune/">
+<meta property="og:image" content="https://kevinjinhanda07.github.io/Attune/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Attune: check if your writing fits your reader">
+<meta name="twitter:description" content="Free tool that checks every paragraph of your essay, email or report against your target reader. See which paragraphs fit, which drift, and how to fix them. Works on the web, in Google Docs and in Word.">
+<meta name="twitter:image" content="https://kevinjinhanda07.github.io/Attune/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Attune","url":"https://kevinjinhanda07.github.io/Attune/","description":"Free tool that checks every paragraph of your essay, email or report against your target reader. See which paragraphs fit, which drift, and how to fix them. Works on the web, in Google Docs and in Word.","applicationCategory":"EducationalApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Audience fit check","Paragraph focus check","Voice consistency check","Clarity check","Google Docs and Word add-ins","Chrome extension"]}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20x%3D%22.5%22%20y%3D%22.5%22%20width%3D%2215%22%20height%3D%2215%22%20rx%3D%224%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23E0DED6%22%2F%3E%3Cpath%20d%3D%22M8%204.83A3.6%203.6%200%200%201%208%2011.17A3.6%203.6%200%200%201%208%204.83Z%22%20fill%3D%22%23B6C5A5%22%2F%3E%3Ccircle%20cx%3D%226.3%22%20cy%3D%228%22%20r%3D%223.6%22%20fill%3D%22none%22%20stroke%3D%22%23242522%22%20stroke-width%3D%221.3%22%2F%3E%3Ccircle%20cx%3D%229.7%22%20cy%3D%228%22%20r%3D%223.6%22%20fill%3D%22none%22%20stroke%3D%22%23242522%22%20stroke-width%3D%221.3%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: two views. Home: sticky bar, hero with a paste-and-scan card, quiet sections, over a slowly moving gradient.
+   Results: GPTZero-style workspace (icon rail | highlighted document | feedback panel). */
+:root{
+  --bg:#FAFAF8;--surface:#FFFFFF;--sunk:#F1F1EE;--ink:#121311;--muted:#63645F;--faint:#92938C;
+  --line:#E5E5E1;--line-soft:#EEEEEA;--accent:#5F7350;--accent-soft:#E4EBDC;--sage:#B6C5A5;--band:#F4F4F1;--grid:#E4E4DF;
+  --btn:#121311;--btn-ink:#FFFFFF;
+  --fit:#6F8F5E;--drift:#C09A4E;--off:#B86B6B;--tint:22%;--flash:#D3DDC7;
+  --shadow:0 1px 2px rgba(20,24,28,.04),0 12px 32px rgba(20,24,28,.07);
+  --display:"Inter Tight","Geist",system-ui,-apple-system,"Segoe UI",sans-serif;--ui:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:"Geist Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root{color-scheme:light}
+
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-.02em}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mark{width:28px;height:28px;border-radius:8px;background:#FFFFFF;border:1px solid #E0DED6;display:grid;place-items:center;flex:none}
+.mark svg{width:17px;height:17px}
+.btn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:9px;border:0;background:var(--btn);color:var(--btn-ink);font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+.btn:hover{opacity:.9}
+.btn.ghost{background:color-mix(in oklab,var(--surface) 70%,transparent);color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--faint);opacity:1}
+.btn.sm{height:34px;padding:0 14px;font-size:13.5px}
+.btn svg{width:16px;height:16px}
+.iconbtn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:color-mix(in oklab,var(--surface) 70%,transparent);display:grid;place-items:center;color:var(--muted)}
+.iconbtn:hover{color:var(--ink);border-color:var(--faint)}
+.iconbtn svg{width:16px;height:16px}
+
+/* moving background: faint crosshatch that drifts slowly, plus a breathing sage glow */
+.pagebg{position:fixed;inset:-80px;z-index:-1;pointer-events:none;background-color:var(--bg);
+  background-image:repeating-linear-gradient(45deg,var(--grid) 0 1px,transparent 1px 28px),repeating-linear-gradient(-45deg,var(--grid) 0 1px,transparent 1px 28px);
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 22%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 75% 65% at 50% 22%,#000 25%,transparent 80%);
+  animation:drift 40s linear infinite}
+.pagebg::after{content:"";position:absolute;inset:0;background:radial-gradient(40% 32% at 50% 24%,color-mix(in oklab,var(--sage) 30%,transparent),transparent 70%);animation:breathe 9s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(39.6px)}}
+@keyframes breathe{from{opacity:.55;transform:scale(1)}to{opacity:1;transform:scale(1.08)}}
+.bg-paused .pagebg,.bg-paused .pagebg::after{animation-play-state:paused}
+/* top bar (frosted glass) */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in oklab,var(--bg) 62%,transparent);backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);border-bottom:1px solid color-mix(in oklab,var(--line) 70%,transparent)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em}
+.nav{display:flex;gap:24px;font-size:14.5px}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.top .sp{flex:1}
+.top .right{display:flex;align-items:center;gap:10px}
+.announce{background:color-mix(in oklab,var(--accent-soft) 80%,transparent);color:var(--accent);font-size:14px;text-align:center;padding-block:9px}
+.announce a{font-weight:500;text-underline-offset:3px}
+.progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;background:var(--sage);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
+
+/* hero */
+.hero{padding-block:104px 64px;text-align:center}
+.hero-in{display:flex;flex-direction:column;align-items:center;gap:22px}
+.kicker{font-size:14px;color:var(--muted)}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(42px,6.4vw,76px);line-height:.98;letter-spacing:-.05em;max-width:11.5em}
+.hero h1 mark{color:inherit;padding:0 .08em;border-radius:.1em;background-color:transparent;background-image:linear-gradient(var(--accent-soft),var(--accent-soft));background-repeat:no-repeat;background-size:100% 100%;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .lead{font-size:18.5px;line-height:1.6;color:var(--muted);max-width:34em;margin:0}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.btn.big{height:50px;padding:0 22px;font-size:15px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;max-width:880px;border-top:1px solid var(--line);margin-top:56px;padding-top:34px}
+.facts div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.facts b{font-family:var(--display);font-size:32px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.facts span{font-size:13.5px;color:var(--muted)}
+.scansec{padding-block:8px 96px}
+.scanwrap{max-width:900px;margin:0 auto}
+.extcard{position:relative;overflow:hidden}
+/* scan card */
+.scan{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.stabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line-soft)}
+.stabs button{border:0;background:var(--sunk);padding:15px 10px;font-size:14.5px;font-weight:500;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px}
+.stabs button[aria-selected="true"]{background:var(--surface);color:var(--ink)}
+.stabs button+button{border-left:1px solid var(--line-soft)}
+.stabs svg{width:16px;height:16px}
+.sbody{padding:18px 22px;display:flex;flex-direction:column;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.lbl{font-size:13px;font-weight:500;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+.lbl small{font-weight:400;color:var(--faint)}
+input[type=text],textarea{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;font-size:15px;line-height:1.55}
+textarea{resize:vertical;min-height:270px;border-color:transparent;background:transparent;padding:4px 2px}
+input[type=text]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 15%,transparent)}
+textarea:focus{outline:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chips .k{font-size:13.5px;color:var(--muted);margin-right:2px}
+.chip{border:1px solid transparent;border-radius:8px;padding:5px 10px;font-size:13.5px;color:var(--ink);background:var(--sunk);transition:border-color .2s}
+.chip:hover{border-color:var(--line)}
+.chip.c1{background:color-mix(in oklab,var(--fit) 16%,var(--surface))}
+.chip.c2{background:color-mix(in oklab,var(--drift) 18%,var(--surface))}
+.chip.c3{background:color-mix(in oklab,var(--off) 14%,var(--surface))}
+.chip.c4{background:color-mix(in oklab,var(--sage) 35%,var(--surface))}
+.sfootbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 22px 18px;border-top:1px solid var(--line-soft);flex-wrap:wrap}
+.count{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.go{height:48px;padding:0 24px;font-size:15.5px}
+.privacy{font-size:12.5px;color:var(--faint);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px}
+.privacy svg{width:12px;height:12px}
+.deeptab{padding:22px;display:flex;flex-direction:column;gap:12px;font-size:15px;color:var(--muted);min-height:330px}
+.deeptab b{color:var(--ink);font-weight:500}
+
+/* marquee band */
+.where{border-block:1px solid var(--line-soft);background:color-mix(in oklab,var(--band) 70%,transparent);overflow:hidden;padding-block:20px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq{display:flex;width:max-content;animation:mq 42s linear infinite}
+.where:hover .mq,.paused .mq{animation-play-state:paused}
+.mq span{display:flex;align-items:center;gap:14px;padding-right:44px;font-size:15px;color:var(--muted);white-space:nowrap}
+.mq span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.mq b{color:var(--ink);font-weight:500}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section.blk{padding-block:88px}
+.eyebrow{font-size:13px;font-weight:500;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.shead{display:flex;flex-direction:column;gap:12px;max-width:640px;margin-bottom:40px}
+.shead h2{font-family:var(--display);font-size:clamp(30px,3.6vw,44px);line-height:1.05;font-weight:800;letter-spacing:-.035em}
+.shead p{margin:0;color:var(--muted);font-size:17px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;position:relative}
+.steps-line{position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--sage);transform-origin:0 50%;border-radius:2px}
+.step{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid var(--line)}
+.step .n{font:500 13px var(--mono);color:var(--faint)}
+.step h3{font-size:19px;font-weight:600}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.checks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ck{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.ck h3{font-size:17px;font-weight:600}
+.ck p{margin:0;color:var(--muted);font-size:14.5px}
+.ck .ex{font-size:13.5px;border-radius:10px;padding:9px 11px;background:color-mix(in oklab,var(--c) var(--tint),transparent);line-height:1.5}
+.ck .ex b{display:block;font-size:11.5px;font-weight:500;color:color-mix(in oklab,var(--c) 80%,var(--ink));margin-bottom:2px}
+.ck::before,.extcard::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),color-mix(in oklab,var(--accent) 12%,transparent),transparent 65%)}
+.ck:hover,.extcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ck:hover::before,.extcard:hover::before{opacity:1}
+.ck>*,.extcard>*{position:relative}
+.bandsec{background:color-mix(in oklab,var(--band) 75%,transparent);border-block:1px solid var(--line-soft)}
+.research{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.srcs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.src{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding-block:14px;border-bottom:1px solid var(--line);text-decoration:none}
+.src b{font-weight:500}
+.src span{grid-column:1;font-size:14px;color:var(--muted)}
+.src svg{grid-row:1/3;grid-column:2;width:16px;height:16px;color:var(--faint);align-self:center}
+.src:hover b{text-decoration:underline;text-underline-offset:3px}
+.disclaim{font-size:13px;color:var(--faint);margin-top:14px}
+.rubric{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.scale{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;font-size:14.5px}
+.scale b{font:500 14px var(--mono)}
+.scale span{color:var(--muted)}
+.dims{display:flex;flex-wrap:wrap;gap:6px}
+.dims span{font-size:13px;background:var(--sunk);border-radius:7px;padding:4px 9px}
+.ext{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.ext h2{font-family:var(--display);font-size:clamp(28px,3.2vw,38px);font-weight:800;line-height:1.05;letter-spacing:-.03em}
+.ext p{color:var(--muted);margin:12px 0 22px}
+.ext ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:i}
+.ext li{counter-increment:i;display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;font-size:15px;align-items:start}
+.ext li::before{content:counter(i);width:28px;height:28px;border-radius:50%;background:var(--sunk);display:grid;place-items:center;font:500 13px var(--mono);color:var(--muted)}
+.ext code{font-family:var(--mono);font-size:13.5px;background:var(--sunk);padding:1px 6px;border-radius:5px}
+.faq{max-width:760px;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding-block:18px}
+.faq summary{cursor:pointer;font-weight:500;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;color:var(--faint);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:10px 0 0;color:var(--muted);max-width:62ch;overflow:hidden}
+footer{border-top:1px solid var(--line-soft);padding-block:28px;color:var(--faint);font-size:14px;background:color-mix(in oklab,var(--bg) 80%,transparent)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none}
+.spark{position:fixed;width:2px;height:10px;border-radius:2px;background:var(--sage);pointer-events:none;z-index:80;transform-origin:50% 100%}
+
+/* ===== results workspace ===== */
+.appv{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;grid-template-columns:76px minmax(0,1fr) 420px;grid-template-rows:minmax(0,1fr);overflow:hidden;overscroll-behavior:contain;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.rail{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 0;padding-left:env(safe-area-inset-left,0px);border-right:1px solid var(--line);position:relative}
+.rail .mark{margin-bottom:12px;width:34px;height:34px;border-radius:10px;text-decoration:none}
+.rbtn{width:64px;border:0;background:transparent;border-radius:12px;padding:8px 2px 7px;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--muted);font-size:11px;text-decoration:none}
+.rbtn:hover{background:var(--sunk);color:var(--ink)}
+.rbtn .bub{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:var(--surface)}
+.rbtn.primary .bub{background:var(--sage);color:#242522;border-color:var(--sage)}
+.rbtn svg{width:16px;height:16px}
+.menu{position:absolute;left:70px;top:120px;z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.14);padding:6px;min-width:230px;display:flex;flex-direction:column}
+.menu button{border:0;background:transparent;text-align:left;padding:9px 10px;border-radius:8px;display:flex;flex-direction:column;gap:1px}
+.menu button:hover{background:var(--sunk)}
+.menu b{font-weight:500;font-size:14px}
+.menu span{font-size:12px;color:var(--faint)}
+.ed{display:grid;grid-template-rows:auto minmax(0,1fr) auto;min-width:0;min-height:0;background:var(--surface)}
+.edtop{display:flex;align-items:center;gap:12px;padding:14px 26px;border-bottom:1px solid var(--line-soft);min-width:0}
+.edtitle{font-weight:500;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.state{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--fit);white-space:nowrap}
+.state.stale{color:var(--drift)}
+.state svg{width:15px;height:15px}
+.edtop .sp{flex:1}
+.edscroll{overflow:auto;overscroll-behavior:contain;min-height:0;padding:40px 28px 60px}
+.paper{max-width:720px;margin:0 auto}
+.edfor{font-size:12.5px;color:var(--faint);margin-bottom:18px}
+.edfor b{color:var(--muted);font-weight:500}
+#editor{outline:none;font-size:17px;line-height:1.85;caret-color:var(--accent)}
+#editor p{margin:0 0 18px;border-radius:6px;transition:box-shadow .25s}
+#editor .h{background:color-mix(in oklab,var(--c,transparent) var(--tint),transparent);border-radius:3px;padding:2px 0;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:background-color .4s}
+#editor p.sel{box-shadow:0 0 0 2px color-mix(in oklab,var(--c,var(--accent)) 55%,transparent),0 0 0 8px color-mix(in oklab,var(--c,var(--accent)) 10%,transparent)}
+#editor p.title{font-weight:600;font-size:19px;color:var(--ink)}
+#editor p.title .h{background:transparent}
+.edfoot{display:flex;align-items:center;gap:14px;padding:10px 26px;border-top:1px solid var(--line-soft);font-size:13px;color:var(--muted);flex-wrap:wrap}
+.edfoot .sp{flex:1}
+.lg{display:flex;gap:12px;align-items:center}
+.lg span{display:flex;align-items:center;gap:5px}
+.lg i{width:12px;height:12px;border-radius:3px;background:color-mix(in oklab,var(--c) 35%,var(--surface))}
+.side{display:grid;grid-template-rows:auto minmax(0,1fr) auto;min-height:0;border-left:1px solid var(--line);background:var(--bg);min-width:0;padding-right:env(safe-area-inset-right,0px)}
+.ptabs{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.ptabs button{flex:1;border:0;background:transparent;border-radius:10px;padding:8px 6px;font-size:14px;font-weight:500;color:var(--muted);display:flex;gap:6px;align-items:center;justify-content:center}
+.ptabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.ptabs svg{width:15px;height:15px}
+.pbody{overflow:auto;overscroll-behavior:contain;min-height:0;padding:16px;display:flex;flex-direction:column;gap:14px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.forrow{display:flex;flex-direction:column;gap:6px}
+.forrow .row{display:flex;gap:6px}
+.forrow input{flex:1;min-width:0;font-size:14px;padding:8px 10px}
+.scorebox{display:flex;align-items:center;gap:16px}
+.ring{position:relative;width:78px;height:78px;flex:none}
+.ring svg{width:78px;height:78px;transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center;font-size:24px;font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.vpill{align-self:flex-start;font-size:13px;font-weight:500;border-radius:999px;padding:3px 11px;background:color-mix(in oklab,var(--c) 16%,transparent);color:color-mix(in oklab,var(--c) 78%,var(--ink))}
+.verdict{display:flex;flex-direction:column;gap:6px;min-width:0}
+.vsub{font-size:14px;color:var(--muted)}
+.map{display:flex;gap:3px;height:12px;margin-top:4px}
+.map button{border:0;padding:0;border-radius:3px;min-width:6px;background:color-mix(in oklab,var(--c) 70%,var(--surface));transition:transform .2s}
+.map button:hover{transform:scaleY(1.4)}
+.map button.on{background:var(--c);transform:scaleY(1.5)}
+.mapends{display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);margin-top:6px}
+.h4{font-size:13px;font-weight:500;color:var(--muted);display:flex;align-items:center;gap:8px;margin:0 0 10px}
+.h4 em{font-style:normal;font:500 11px var(--mono);background:var(--sunk);border-radius:999px;padding:1px 7px}
+.h4 .sp{flex:1}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{background:var(--bg);border-radius:12px;padding:9px 11px;display:flex;flex-direction:column;gap:6px}
+.tile .tt{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--muted)}
+.tile b{font:500 15px var(--mono);color:var(--ink)}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;transform-origin:left;transform:scaleX(0);background:var(--c);transition:transform .8s var(--ease)}
+.nw{display:flex;flex-direction:column;gap:8px}
+.nwi{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-align:left;width:100%}
+.nwi:hover{border-color:color-mix(in oklab,var(--c) 50%,var(--line))}
+.nwi i{width:12px;height:12px;border-radius:3px;background:color-mix(in oklab,var(--c) 40%,var(--surface))}
+.nwi .x{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nwi .x b{font:500 11.5px var(--mono);color:var(--faint);margin-right:6px;font-weight:500}
+.nwi .s{font:500 12.5px var(--mono);color:color-mix(in oklab,var(--c) 80%,var(--ink))}
+.nextbtn{border:0;background:var(--btn);color:var(--btn-ink);border-radius:999px;padding:4px 11px;font-size:12px;font-weight:500}
+.detail{border-left:4px solid color-mix(in oklab,var(--c) 45%,var(--surface))}
+.dtop{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.dtop b{font:500 12.5px var(--mono);color:var(--muted)}
+.dtop .s{margin-left:auto;font:500 13px var(--mono);border-radius:999px;padding:2px 9px;background:color-mix(in oklab,var(--c) 15%,transparent);color:color-mix(in oklab,var(--c) 80%,var(--ink))}
+.dtop .x{border:0;background:transparent;color:var(--faint);font-size:18px;line-height:1;padding:0 2px}
+.und{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.und span{background:var(--bg);border-radius:9px;padding:6px 9px;font-size:13px;font-weight:500;color:color-mix(in oklab,var(--cc) 80%,var(--ink));display:flex;flex-direction:column}
+.und em{font-style:normal;font-size:11px;font-weight:400;color:var(--faint)}
+.tips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.tips li{font-size:13.5px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:start}
+.tag{font-size:11px;line-height:19px;border-radius:5px;padding:0 6px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.swaps{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.swap{border:1px solid var(--line);background:var(--surface);border-radius:7px;padding:3px 8px;font-size:12px}
+.swap:hover{border-color:var(--accent);background:var(--accent-soft)}
+.swap s{color:var(--faint)}
+.dnote{font-size:12.5px;color:var(--muted);margin-top:10px}
+.dnote a{color:var(--accent);font-weight:500}
+.rows{display:flex;flex-direction:column}
+.prow{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 4px;border:0;border-bottom:1px solid var(--line-soft);background:transparent;text-align:left;width:100%}
+.prow:hover{background:var(--surface)}
+.prow i{width:12px;height:12px;border-radius:3px;background:color-mix(in oklab,var(--c) 40%,var(--surface))}
+.prow .x{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prow .x b{font:500 11.5px var(--mono);color:var(--faint);margin-right:6px}
+.prow .s{font:500 12.5px var(--mono);color:color-mix(in oklab,var(--c) 80%,var(--ink))}
+.pfoot{padding:12px 16px 16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.pfoot .btn{justify-content:space-between;height:48px;border-radius:14px;width:100%}
+.pfoot .meta{font-size:12px;color:var(--faint);display:flex;justify-content:space-between}
+.empty{font-size:13.5px;color:var(--muted);text-align:center;padding:24px 8px}
+
+@media (max-width:1100px){.appv{grid-template-columns:68px minmax(0,1fr) 360px}}
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px}
+  .checks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .research,.ext{grid-template-columns:minmax(0,1fr)}
+  .nav{display:none}
+}
+@media (max-width:860px){
+  .appv{position:fixed;display:block;overflow:auto;-webkit-overflow-scrolling:touch}
+  .rail{flex-direction:row;border-right:0;border-bottom:1px solid var(--line);padding:8px max(10px,env(safe-area-inset-left,0px));gap:4px;position:sticky;top:0;background:var(--bg);z-index:3}
+  .rail .mark{margin:0 8px 0 0}
+  .rbtn{flex-direction:row;width:auto;padding:6px 10px 6px 6px;font-size:12.5px}
+  .rbtn .bub{width:28px;height:28px}
+  .menu{left:10px;top:52px}
+  .ed{display:block}
+  .edscroll{overflow:visible;padding:24px max(16px,env(safe-area-inset-left,0px))}
+  .side{display:block;border-left:0;border-top:1px solid var(--line)}
+  .pbody{overflow:visible}
+}
+@media (max-width:620px){
+  .facts{grid-template-columns:1fr 1fr;row-gap:26px}
+  .hero{padding-block:64px 48px}
+  .steps,.checks{grid-template-columns:minmax(0,1fr)}
+  .ext{padding:24px}
+  .sbody,.sfootbar{padding-left:16px;padding-right:16px}
+  .facts div{padding:4px 14px}
+  section.blk{padding-block:64px}
+  .top .btn{display:none}
+  .edtop .btn{display:none}
+}
+/* Lenis smooth scrolling (its stylesheet, inlined) */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+@media (prefers-reduced-motion:reduce){html:not(.motion-on) *,html:not(.motion-on) *::before,html:not(.motion-on) *::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="pagebg" id="pageBg" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div id="home">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M8 4.83A3.6 3.6 0 0 1 8 11.17A3.6 3.6 0 0 1 8 4.83Z" fill="#B6C5A5"/><circle cx="6.3" cy="8" r="3.6" stroke="#242522" stroke-width="1.3"/><circle cx="9.7" cy="8" r="3.6" stroke="#242522" stroke-width="1.3"/></svg></span>Attune</a>
+    <nav class="nav" aria-label="Sections"><a href="#how">How it works</a><a href="#checks">What it checks</a><a href="#research">Research</a><a href="#faq">FAQ</a></nav>
+    <span class="sp"></span>
+    <div class="right">
+      <button class="iconbtn" id="motionBtn" aria-pressed="true" title="Pause background animation" aria-label="Pause background animation"><svg viewBox="0 0 16 16" fill="currentColor" id="motionIcon"><rect x="4" y="3" width="3" height="10" rx="1"/><rect x="9" y="3" width="3" height="10" rx="1"/></svg></button>
+      <a class="btn" href="#extension">Get the extension</a>
+    </div>
+  </div>
+</header>
+<div class="announce"><div class="wrap">New: Attune for Chrome works in every Google Doc. <a href="#extension">See how to install it</a></div></div>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-in">
+    <span class="kicker" id="kicker">Attune · audience checks for writers</span>
+    <h1 id="headline">Write for the reader <mark id="hlMark">in front of you.</mark></h1>
+    <p class="lead">Attune checks every paragraph against the person you're writing for. It shows which ones fit, which ones drift, and the smallest change that would fix them.</p>
+    <div class="ctas"><a class="btn big" href="#scanSec" id="ctaScan">Scan your writing<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a><a class="btn ghost big" href="#extension">Get the Chrome extension</a></div>
+    <div class="facts">
+      <div><b>4</b><span>Checks per paragraph</span></div>
+      <div><b>10</b><span>Rubric dimensions</span></div>
+      <div><b>3</b><span>Places to use it</span></div>
+      <div><b>0</b><span>Words sent to a server</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="scansec" id="scanSec">
+  <div class="wrap scanwrap">
+      <div class="scan" id="scanCard">
+        <div class="stabs" role="tablist">
+          <button role="tab" id="tabAud" aria-selected="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 14a5 5 0 0 1 10 0"/></svg>Audience check</button>
+          <button role="tab" id="tabDeep" aria-selected="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 1.5v3M8 11.5v3M1.5 8h3M11.5 8h3M3.4 3.4l2 2M10.6 10.6l2 2M3.4 12.6l2-2M10.6 5.4l2-2"/></svg>Deep review</button>
+        </div>
+        <div id="paneAud">
+          <div class="sbody">
+            <div class="field">
+              <label class="lbl" for="audience">Who are you writing for? <small>The more specific, the better</small></label>
+              <input type="text" id="audience" placeholder="e.g. College admissions officers at selective universities">
+            </div>
+            <textarea id="text" aria-label="Your writing" placeholder="Paste your text here. Separate paragraphs with a blank line."></textarea>
+            <div class="chips" id="samples"><span class="k">Examples:</span></div>
+          </div>
+          <div class="sfootbar">
+            <span class="count" id="count">0 / 10,000 characters</span>
+            <button class="btn go" id="go">Scan<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></button>
+          </div>
+        </div>
+        <div id="paneDeep" hidden>
+          <div class="deeptab">
+            <b>Deep review reads a paragraph the way a writing teacher would.</b>
+            <span>It checks the paragraph against your reader and a 10-part rubric, quotes your exact words, and suggests the smallest fix that keeps your meaning. It also tells you when it needs more context.</span>
+            <span>Deep review runs inside the Attune extension and add-ons, using your own Anthropic API key.</span>
+            <a class="btn" href="#extension" style="align-self:flex-start;margin-top:6px">Get the extension</a>
+          </div>
+        </div>
+      </div>
+      <div class="privacy"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="10" height="7" rx="2"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>Runs in your browser. Your text isn't sent anywhere.</div>
+  </div>
+</section>
+
+<div class="where" aria-label="Where Attune works and what it checks"><div class="mq">
+  <span>Works in <b>Google Docs</b></span><span><b>Microsoft Word</b></span><span><b>Chrome</b>, in every Doc</span><span>Checks <b>audience fit</b></span><span><b>Focus</b> on one point</span><span>One <b>voice</b> throughout</span><span><b>Clarity</b> for anyone</span><span><b>Deep review</b> with AI</span>
+  <span aria-hidden="true">Works in <b>Google Docs</b></span><span aria-hidden="true"><b>Microsoft Word</b></span><span aria-hidden="true"><b>Chrome</b>, in every Doc</span><span aria-hidden="true">Checks <b>audience fit</b></span><span aria-hidden="true"><b>Focus</b> on one point</span><span aria-hidden="true">One <b>voice</b> throughout</span><span aria-hidden="true"><b>Clarity</b> for anyone</span><span aria-hidden="true"><b>Deep review</b> with AI</span>
+</div></div>
+
+<section class="blk" id="how">
+  <div class="wrap">
+    <div class="shead"><span class="eyebrow">How it works</span><h2>Three steps, while you write</h2><p>Attune follows the order writing teachers recommend: define the reader first, then judge the writing against them.</p></div>
+    <div class="steps"><span class="steps-line" id="stepsLine" aria-hidden="true"></span>
+      <div class="step"><span class="n">1</span><h3>Describe your reader</h3><p>Who they are, what they already know, what they need from you. Pick a preset or write your own.</p></div>
+      <div class="step"><span class="n">2</span><h3>Scan your writing</h3><p>Attune reads each paragraph and colors it: green fits, yellow drifts, pink loses your reader.</p></div>
+      <div class="step"><span class="n">3</span><h3>Fix what needs work</h3><p>Go to each paragraph in order. Swap jargon in one click, edit, and re-check.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="checks" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead"><span class="eyebrow">What it checks</span><h2>Four questions for every paragraph</h2><p>Each answer is a plain-language label and a short fix, not a reading-level number.</p></div>
+    <div class="checks">
+      <div class="ck" style="--c:var(--off)"><h3>Audience fit</h3><p>Will this reader understand it and care? Checks background knowledge, jargon and tone.</p><div class="ex"><b>Your reader: Likely lost</b>“leverage my skill set to optimize workflow efficiencies”</div></div>
+      <div class="ck" style="--c:var(--drift)"><h3>Focus</h3><p>Does the paragraph make one point, and does it serve your main idea?</p><div class="ex"><b>Partly focused</b>Unclear how this supports your main point.</div></div>
+      <div class="ck" style="--c:var(--drift)"><h3>Voice</h3><p>Does it sound like the same writer as the rest of the piece?</p><div class="ex"><b>Voice shift</b>Chattier than the rest of the piece.</div></div>
+      <div class="ck" style="--c:var(--fit)"><h3>Clarity</h3><p>Could anyone follow it? Flags tangled sentences and repetition.</p><div class="ex"><b>Anyone: Easy to follow</b>Sentences vary in length and read cleanly.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk bandsec" id="research">
+  <div class="wrap research">
+    <div>
+      <div class="shead" style="margin-bottom:24px"><span class="eyebrow">Grounded in research</span><h2>A rubric built from writing-center guidance</h2><p>Deep review follows a written rubric drawn from public guidance on audience, paragraphs and plain language. It quotes your exact words and says when it doesn't have enough context.</p></div>
+      <div class="srcs">
+        <a class="src" href="https://owl.purdue.edu/owl/subject_specific_writing/professional_technical_writing/audience_analysis/index.html" target="_blank" rel="noopener"><b>Purdue OWL</b><span>Audience analysis and the rhetorical situation</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+        <a class="src" href="https://writingcenter.unc.edu/tips-and-tools/paragraphs/" target="_blank" rel="noopener"><b>UNC Writing Center</b><span>Audience, paragraphs, argument and word choice</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+        <a class="src" href="https://www.cdc.gov/ccindex/index.html" target="_blank" rel="noopener"><b>CDC Clear Communication Index</b><span>Define the audience and main message before scoring</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+        <a class="src" href="https://digital.gov/guides/plain-language" target="_blank" rel="noopener"><b>Digital.gov</b><span>Plain language, defined by what the reader needs</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+        <a class="src" href="https://cccc.ncte.org/cccc/resources/positions/writingassessment/" target="_blank" rel="noopener"><b>CCCC / NCTE</b><span>Fair writing assessment and the limits of machine scoring</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+      </div>
+      <p class="disclaim">Attune isn't affiliated with or endorsed by these organizations.</p>
+    </div>
+    <div class="rubric">
+      <h3 style="font-size:18px;font-weight:600">How Deep review rates a paragraph</h3>
+      <div class="scale"><b>4</b><span>Strong fit, nothing substantial to change</span><b>3</b><span>Works, with a small local fix</span><b>2</b><span>A real mismatch gets in the way</span><b>1</b><span>Needs substantial revision</span><b>?</b><span>Not enough context to judge (never counted as a low score)</span></div>
+      <div class="lbl" style="margin-top:4px">Audience fit</div>
+      <div class="dims"><span>Background knowledge</span><span>Relevance to the reader</span><span>Language and terms</span><span>Tone</span><span>Explanation and support</span><span>Easy to use</span></div>
+      <div class="lbl">Focus</div>
+      <div class="dims"><span>Clear main point</span><span>Every sentence fits</span><span>Ideas connect</span><span>Serves the whole piece</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="extension">
+  <div class="wrap">
+    <div class="ext">
+      <div>
+        <span class="eyebrow">Attune for Chrome</span>
+        <h2 style="margin-top:10px">Use it in every Google Doc</h2>
+        <p>Install once. A small Attune button appears in the corner of every document you open. Click it for scores, color-coded paragraphs and Go to next.</p>
+        <a class="btn" href="https://github.com/kevinjinhanda07/Attune" target="_blank" rel="noopener">Download from GitHub<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+      </div>
+      <ol>
+        <li><span>Download <b>attune-chrome-extension.zip</b> from GitHub and unzip it somewhere you'll keep it.</span></li>
+        <li><span>In Chrome, open <code>chrome://extensions</code> and turn on <b>Developer mode</b>.</span></li>
+        <li><span>Click <b>Load unpacked</b> and choose the unzipped folder.</span></li>
+        <li><span>Open any Google Doc and click the <b>Attune</b> button in the bottom-right corner.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead"><span class="eyebrow">FAQ</span><h2>Questions</h2></div>
+    <div class="faq">
+      <details><summary>Is Attune an AI detector?</summary><p>No. Attune doesn't guess who wrote something. It checks whether the writing works for the person who'll read it.</p></details>
+      <details><summary>Is my writing stored or sent anywhere?</summary><p>The scan on this page runs entirely in your browser. Deep review, in the extension, sends only the paragraph you choose, with its neighbors and your reader description, to Anthropic's API using your own key.</p></details>
+      <details><summary>Are the scores grades?</summary><p>No. They're estimates to help you revise. A score of 83 and a score of 85 aren't meaningfully different. Read the labels and the fixes, and trust your own judgment.</p></details>
+      <details><summary>Does it penalize technical words or informal English?</summary><p>Not on their own. Technical terms are fine when your reader knows them, and Attune doesn't treat one style of English as the correct one. It flags words only when your reader is likely to get lost.</p></details>
+      <details><summary>What does it cost?</summary><p>The scan is free. Deep review uses your own Anthropic API key and costs a few cents per paragraph.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>© 2026 Attune</span><span><a href="#how">How it works</a> · <a href="#research">Research</a> · <a href="#extension">Extension</a> · <a href="privacy.html">Privacy</a></span></div></footer>
+</div>
+
+<!-- ===== Results workspace (opens after Scan) ===== -->
+<div class="appv" id="appv" hidden role="region" aria-label="Scan results">
+  <nav class="rail" aria-label="Workspace">
+    <a class="mark" href="#top" id="railHome" title="Attune home" aria-label="Attune home"><svg viewBox="0 0 16 16" fill="none"><path d="M8 4.83A3.6 3.6 0 0 1 8 11.17A3.6 3.6 0 0 1 8 4.83Z" fill="#B6C5A5"/><circle cx="6.3" cy="8" r="3.6" stroke="#242522" stroke-width="1.3"/><circle cx="9.7" cy="8" r="3.6" stroke="#242522" stroke-width="1.3"/></svg></a>
+    <button class="rbtn primary" id="newScan"><span class="bub"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></span>New scan</button>
+    <button class="rbtn" id="exBtn" aria-haspopup="true" aria-expanded="false"><span class="bub"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 2h5l3 3v9H4z"/><path d="M9 2v3h3M6 9h4M6 11.5h3"/></svg></span>Examples</button>
+    <a class="rbtn" href="#extension" id="railExt"><span class="bub"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M6 2.5h4v2a1.5 1.5 0 0 0 3 0v-.5h.5v4h-1a1.5 1.5 0 0 0 0 3h1v3h-11v-11z"/></svg></span>Extension</a>
+    <div class="menu" id="exMenu" hidden role="menu"></div>
+  </nav>
+
+  <section class="ed">
+    <header class="edtop">
+      <span class="edtitle" id="edTitle">Untitled scan</span>
+      <span class="state" id="edState"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="m5.5 8 1.8 1.8L10.5 6.5"/></svg><span>Checked</span></span>
+      <span class="sp"></span>
+      <a class="btn ghost sm" href="#extension" id="edExt">Use it in Google Docs</a>
+    </header>
+    <div class="edscroll" id="edScroll" data-lenis-prevent>
+      <article class="paper">
+        <div class="edfor">For <b id="edFor">General readers</b> · click any paragraph for details · you can edit the text</div>
+        <div id="editor" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Your document"></div>
+      </article>
+    </div>
+    <footer class="edfoot">
+      <span id="edCount"></span><span class="sp"></span>
+      <span class="lg"><span style="--c:var(--fit)"><i></i>Fits</span><span style="--c:var(--drift)"><i></i>Drifting</span><span style="--c:var(--off)"><i></i>Off</span></span>
+    </footer>
+  </section>
+
+  <aside class="side" aria-label="Feedback">
+    <div class="ptabs" role="tablist">
+      <button role="tab" id="ptOv" aria-selected="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 13V9M8 13V5M13 13V3"/></svg>Overview</button>
+      <button role="tab" id="ptPa" aria-selected="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 4h10M3 8h10M3 12h6"/></svg>Paragraphs</button>
+    </div>
+    <div class="pbody" id="pbody" data-lenis-prevent></div>
+    <div class="pfoot">
+      <button class="btn" id="recheck"><span>Re-check</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M13 8a5 5 0 1 1-1.5-3.5M13 3v2.5h-2.5"/></svg></button>
+      <div class="meta"><span id="pmeta"></span><span>Quick estimates</span></div>
+    </div>
+  </aside>
+</div>
+
+<script>
+/* ===== Quick-check engine =====
+   Fast estimates that run as you type. Rules follow Attune's knowledge base (KNOWLEDGE.md):
+   audience fit is judged against the reader profile, technical terms are fine for expert readers,
+   plain wording is not treated as better on its own, and focus is scored separately from audience fit. */
+const PROFILES=[
+ {keys:['admission','college','universit','application','scholarship'],name:'Admissions readers',grade:[7,12],form:.45,sent:[11,22],jargon:false,personal:true},
+ {keys:['executive','ceo','vp','leadership','board','busy','skim','stakeholder'],name:'Executives',grade:[6,10],form:.5,sent:[8,17],jargon:false,personal:true},
+ {keys:['8th','eighth','grader','middle school','kids','children','teen','science class','classroom'],name:'Young readers',grade:[4,8],form:.35,sent:[7,15],jargon:false,personal:true},
+ {keys:['academic','journal','peer','reviewer','professor','phd','research','scholar'],name:'Academic reviewers',grade:[12,18],form:.75,sent:[15,30],jargon:true,personal:false},
+ {keys:['hiring','recruiter','cover letter','employer','job','role'],name:'Hiring managers',grade:[8,12],form:.5,sent:[10,20],jargon:false,personal:true},
+ {keys:['friend','casual','newsletter','customer','community','social','followers'],name:'General readers',grade:[5,9],form:.3,sent:[8,18],jargon:false,personal:true}
+];
+const DEFAULT={name:'General adults',grade:[7,11],form:.5,sent:[10,20],jargon:false,personal:true};
+const TONES={neutral:p=>p,warm:p=>({...p,form:p.form-.08,personal:true}),formal:p=>({...p,form:Math.min(.9,p.form+.18)}),
+ direct:p=>({...p,sent:[Math.max(6,p.sent[0]-2),Math.max(12,p.sent[1]-5)]}),playful:p=>({...p,form:Math.max(.15,p.form-.2),playful:true})};
+function interpret(st){
+  const reader=(st.audience||'').toLowerCase(),know=(st.knowledge||'').toLowerCase(),genre=st.genre||'';
+  let best=null,bestN=0;
+  for(const p of PROFILES){const n=p.keys.filter(k=>reader.includes(k)).length;if(n>bestN){best=p;bestN=n}}
+  let prof={...(best||DEFAULT)};
+  const all=reader+' '+know;
+  if(/\b(non-?native|esl|english learners?)\b/.test(all)){prof.grade=[prof.grade[0]-2,prof.grade[1]-2];prof.sent=[prof.sent[0],prof.sent[1]-4]}
+  if(/\b(expert|experts|specialists?|technical|engineers?|developers?|clinicians?|researchers?|trained|phd|professionals? in)\b/.test(all)){prof.jargon=true;prof.grade=[prof.grade[0]+1,prof.grade[1]+3]}
+  if(/\b(no (technical |prior )?background|beginners?|new to|non-?experts?|general public|no prior|never studied|lay)\b/.test(all)){prof.jargon=false;prof.grade=[prof.grade[0],Math.min(prof.grade[1],10)]}
+  if(/\b(formal|serious|professional)\b/.test(reader))prof.form=Math.min(.9,prof.form+.1);
+  if(/\b(casual|friendly|fun|relaxed)\b/.test(reader))prof.form=Math.max(.15,prof.form-.12);
+  if(/Workplace/.test(genre))prof.sent=[prof.sent[0],Math.min(prof.sent[1],18)];
+  if(/Argumentative/.test(genre))prof.form=Math.min(.9,prof.form+.05);
+  if(/Personal/.test(genre))prof.personal=true;
+  return (TONES[st.tone]||TONES.neutral)(prof);
+}
+const JARGON={'leverage':'use','utilize':'use','utilise':'use','optimize':'improve','synergy':'teamwork','stakeholders':'the people involved','skill set':'skills','actionable':'practical','deliverables':'results','bandwidth':'time','paradigm shift':'big change','paradigm':'model','holistic':'whole','impactful':'effective','circle back':'follow up','going forward':'from then on','facilitated':'led to','facilitates':'helps','facilitate':'help','in order to':'to','operationalize':'carry out','learnings':'lessons','key takeaways':'main points','value-add':'benefit','streamline':'simplify','workflow efficiencies':'faster work','aforementioned':'these','contextualize':'explain','utilization':'use','transduction':'conversion','localized':'found'};
+const SLANG=['lol','kinda','gonna','wanna','like,','super','totally','crazy','awesome','literally','honestly','omg','stuff','guys','pretty much','tbh'];
+const HEDGES=['very','really','quite','somewhat','basically','actually','kind of','sort of','i think','i feel like','in all likelihood','arguably'];
+const FORMAL=['furthermore','moreover','thus','hence','therefore','consequently','regarding','whereby','herein','notwithstanding','subsequently','aforementioned','accordingly','nevertheless','it is important to note'];
+const STOP=new Set('about above after again their there these those which while would could should other being where every through because before still words'.split(' '));
+const STOPF=new Set('that this these those with from into onto about over under after before because while when where which whom whose what there their they them have been being were will would could should might must shall also just very more most much many some such each other only your yours ours mine like even still ever never always then than very really thing things something make made does doing done into upon able'.split(' '));
+const escRe=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\/*@ENGINE@*/');
+const reFor=t=>new RegExp('(?:^|[^a-z])('+escRe(t)+')'+(/[a-z]$/.test(t)?'(?![a-z])':''),'gi');
+function hits(lower,list){const out=[];for(const term of list){const m=lower.match(reFor(term));if(m)out.push({term,n:m.length})}return out}
+function syl(w){w=w.toLowerCase().replace(/[^a-z]/g,'');if(w.length<=3)return 1;w=w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'').replace(/^y/,'');const m=w.match(/[aeiouy]{1,2}/g);return m?m.length:1}
+const WRE=/[A-Za-z][A-Za-z'’-]*/g;
+const stem=w=>w.toLowerCase().replace(/['’]s$/,'').replace(/(ing|ed|es|s)$/,'');
+const cwords=t=>(t.match(WRE)||[]).map(w=>w.toLowerCase()).filter(w=>w.length>=4&&!STOPF.has(w)).map(stem).filter(w=>w.length>=3);
+function feats(text){
+  const t=text.replace(/\s+/g,' ').trim();const words=t.match(WRE)||[];const nW=words.length;
+  const sents=t.split(/(?<=[.!?…])\s+/).filter(s=>/[A-Za-z]/.test(s));const nS=Math.max(1,sents.length);
+  const sLens=sents.map(s=>(s.match(WRE)||[]).length);const sylls=words.map(syl);const sy=sylls.reduce((a,b)=>a+b,0);
+  const wps=nW/nS,spw=sy/Math.max(1,nW);const grade=Math.max(1,0.39*wps+11.8*spw-15.59);
+  const lower=t.toLowerCase().replace(/’/g,"'");const per=x=>x*100/Math.max(1,nW);
+  const longW=sylls.filter(s=>s>=3).length/Math.max(1,nW);
+  const contr=(lower.match(/\b[a-z]+'(t|re|ve|ll|d|m)\b/g)||[]).length;
+  const slang=hits(lower,SLANG),jargon=hits(lower,Object.keys(JARGON)),hedges=hits(lower,HEDGES),formal=hits(lower,FORMAL);
+  const sum=a=>a.reduce((x,y)=>x+y.n,0);
+  const excl=(t.match(/!/g)||[]).length,ques=(t.match(/\?/g)||[]).length;
+  const first=(lower.match(/\b(i|me|my|mine|myself)\b/g)||[]).length,second=(lower.match(/\b(you|your|yours)\b/g)||[]).length;
+  const passive=t.match(/\b(was|were|is|are|been|being|be)\s+(\w{3,}ed|given|taken|done|made|seen|known|written|built|held)\b/gi)||[];
+  const nominal=t.match(/\b\w{3,}(tion|sion|ment|ance|ence|ity)s?\b/gi)||[];
+  const starts={};sents.forEach(s=>{const w=(s.match(WRE)||[''])[0].toLowerCase();if(w)starts[w]=(starts[w]||0)+1});
+  const freq={};words.forEach(w=>{w=w.toLowerCase();if(w.length>=5&&!STOP.has(w))freq[w]=(freq[w]||0)+1});
+  const repeats=Object.entries(freq).filter(([,n])=>n>=3);
+  const mean=sLens.reduce((a,b)=>a+b,0)/nS;const sd=Math.sqrt(sLens.reduce((a,b)=>a+(b-mean)**2,0)/nS);
+  let form=.5+.1*Math.min(sum(formal),3)+(longW-.12)*1.3-.05*per(contr)-.13*sum(slang)-.08*excl+(wps-15)*.008;form=Math.max(0,Math.min(1,form));
+  return {t,nW,nS,sents,wps,grade,longW,cR:per(contr),slang,jargon,hedges,excl,ques,fR:per(first),yR:per(second),passive,nominal,starts,repeats,sd,longest:Math.max(...sLens,0),form,cw:new Set(cwords(t))};
+}
+const STRICT=[.55,.78,1,1.25,1.55];
+const clamp=x=>Math.round(Math.max(4,Math.min(100,x)));
+const q=s=>'“'+s+'”';
+const list=a=>a.slice(0,3).map(x=>q(x.term.replace(/,$/,''))).join(', ');
+const firstWords=(s,n=8)=>{const w=s.split(/\s+/);return w.slice(0,n).join(' ')+(w.length>n?'…':'')};
+function scoreAll(texts,prof,s,thesis){
+  const F=texts.map(t=>{const f=feats(t);f.ok=f.nW>=6;return f});
+  // words that appear in two or more paragraphs = the document's key ideas
+  const df={};F.forEach(f=>f.cw.forEach(w=>df[w]=(df[w]||0)+1));
+  const thesisW=new Set(cwords(thesis||''));
+  const res=F.map((f,pi)=>{
+    if(!f.ok)return {ok:false,f};
+    const notes=[];const add=(m,w,text,swaps)=>{if(w>0)notes.push({m,w,text,swaps})};
+    /* Audience fit */
+    let A=0;const [lo,hi]=prof.grade,g=f.grade,pn=prof.name.toLowerCase();
+    if(g>hi){const p=(g-hi)*6;A+=p;add('A',p,`Hard for ${pn} to follow. Shorten it or explain the main idea.`)}
+    else if(g<lo-2){const p=(lo-2-g)*4;A+=p;add('A',p,`May feel thin for ${pn}. Add one specific detail.`)}
+    const fd=f.form-prof.form;
+    { const mid=(lo+hi)/2,half=(hi-lo)/2; A+=Math.max(0,Math.abs(g-mid)-half*.5)*2.2; A+=Math.abs(fd)*28; }
+    if(Math.abs(fd)>.14){const p=(Math.abs(fd)-.14)*120;A+=p;
+      if(fd>0)add('A',p,`Stiffer than ${pn} expect. Use plainer verbs.`);
+      else if(f.slang.length)add('A',p,`Too casual for ${pn}: ${list(f.slang)}.`);
+      else add('A',p,`A bit casual for ${pn}.`);}
+    if(!prof.jargon&&f.jargon.length){const n=f.jargon.reduce((a,b)=>a+b.n,0),p=n*8;A+=p;add('A',p,`Jargon they may not get: ${list(f.jargon)}.`,f.jargon.slice(0,4).map(j=>({from:j.term,to:JARGON[j.term]})))}
+    if(f.slang.length&&prof.form>=.4&&!(Math.abs(fd)>.14)){const p=f.slang.length*6;A+=p;add('A',p,`Slang reads as careless: ${list(f.slang)}.`)}
+    const [sl,sh]=prof.sent;
+    A+=Math.abs(f.wps-(sl+sh)/2)*.55;
+    if(f.wps>sh){const p=(f.wps-sh)*1.6;A+=p;add('A',p,'Sentences run long for this reader. Split one.')}
+    if(f.excl&&prof.form>=.4&&!prof.playful){const p=f.excl*6;A+=p;add('A',p,'Drop the exclamation marks.')}
+    if(!prof.personal&&f.fR>4){const p=(f.fR-4)*2.2;A+=p;add('A',p,'Too much “I” for this reader.')}
+    /* Focus: does each sentence serve the paragraph, and does the paragraph serve the document? */
+    let X=0;
+    // Sentence-level focus is left to Deep review: word matching gives too many false alarms.
+    const shared=[...f.cw].filter(w=>df[w]>=2).length;
+    if(thesisW.size){
+      const onPoint=[...f.cw].some(w=>thesisW.has(w));
+      if(!onPoint&&shared<2&&texts.length>2){X+=18;add('X',18,'Unclear how this supports your main point.')}
+    }else if(shared===0&&F.filter(o=>o.ok).length>=3){X+=12;add('X',12,'Doesn’t connect to the rest of the piece.')}
+    if(F.filter(o=>o.ok).length>=3){const ratio=f.cw.size?shared/f.cw.size:1;X+=Math.max(0,.42-ratio)*42}
+    if(thesisW.size){const hit=[...f.cw].filter(w=>thesisW.has(w)).length;X+=Math.max(0,3-hit)*2.5}
+    if(f.nS===1&&f.nW>28)X+=6;
+    /* Readability (flow + plain wording) */
+    let R=0;
+    if(f.longest>30){const p=8+(f.longest-30)*1.4;R+=p;add('R',p,`One ${f.longest}-word sentence. Break it up.`)}
+    if(f.nS>=3&&f.sd<2.6){R+=10;add('R',10,'Every sentence is the same length. Vary one.')}
+    Object.entries(f.starts).forEach(([w,n])=>{if(n>=3){const p=(n-2)*8;R+=p;add('R',p,`${n} sentences start with ${q(w==='i'?'I':w)}.`)}});
+    if(f.passive.length){const p=f.passive.length*5;R+=p;add('R',p,`Passive: ${q(f.passive[0])}. Say who did it.`)}
+    f.repeats.forEach(([w,n])=>{const p=(n-2)*5;R+=p;add('R',p,`${q(w)} used ${n} times.`)});
+    if(f.hedges.length){const p=f.hedges.reduce((a,b)=>a+b.n,0)*4;R+=p;add('R',p,`Hedges weaken it: ${list(f.hedges)}.`)}
+    if(!prof.jargon){
+      if(f.longW>.22){const p=(f.longW-.22)*120;R+=p;add('R',p,'Lots of long words. Swap a few for short ones.')}
+      const nr=f.nominal.length*100/f.nW;
+      if(nr>6){const p=(nr-6)*2.5;R+=p;add('R',p,`Noun-heavy (${q(f.nominal[0])}). Use a verb instead.`)}
+    }
+    if(f.excl>1)R+=6;
+    if(f.wps>15)R+=(f.wps-15)*.9;
+    R+=Math.max(0,f.longW-.1)*55;
+    if(f.nS>=3&&f.sd<4)R+=(4-f.sd)*1.5;
+    const unexplained=prof.jargon?0:f.jargon.length;
+    const anyone=g<=9&&f.longest<=28&&f.longW<=.2?'Easy to follow':g<=13&&f.longest<=38?'Takes some effort':'Hard to follow';
+    const aRaw=100-A*s;const reader=g>hi+3||unexplained>=2||aRaw<50?'Likely lost':g>hi||unexplained===1||f.wps>sh+4||aRaw<75?'Might struggle':'Will understand';
+    return {ok:true,f,A:clamp(100-A*s),X:clamp(100-X*s),R:clamp(100-R*s),notes,anyone,reader};
+  });
+  /* Voice: compare each paragraph's style with the rest of the document */
+  const vec=f=>[Math.min(f.wps,40)/18,f.form*1.6,Math.min(f.fR,15)/7,Math.min(f.yR,15)/6,Math.min(f.cR,10)/3.5,(f.excl+f.ques)/f.nS*1.6,f.longW*4];
+  const DIMS=['wps','form','first','second','contr','punct','long'];
+  const ok=res.filter(r=>r.ok);
+  const med=a=>{a=[...a].sort((x,y)=>x-y);const h=a.length>>1;return a.length%2?a[h]:(a[h-1]+a[h])/2};
+  res.forEach(r=>{
+    if(!r.ok)return;const others=ok.filter(o=>o!==r);
+    if(others.length<2){r.V=100;return}
+    const v=vec(r.f),m=v.map((_,k)=>med(others.map(o=>vec(o.f)[k])));const d=v.map((x,k)=>x-m[k]);
+    const rms=Math.sqrt(d.reduce((a,x)=>a+x*x,0)/d.length);
+    r.V=clamp(100-Math.max(0,rms*95-14)*s);
+    if(r.V<80){
+      const k=d.reduce((bi,x,j)=>Math.abs(x)>Math.abs(d[bi])?j:bi,0),up=d[k]>0,p=(100-r.V)*.9;
+      const avgW=Math.round(med(others.map(o=>o.f.wps)));
+      const msg={wps:up?'Much wordier sentences than your others.':'Choppier than your other paragraphs.',
+        form:up?'Stiffer than the rest, like another writer.':'Chattier than the rest of the piece.',
+        first:up?'More “I” than your other paragraphs.':'Drops the “I” voice you use elsewhere.',
+        second:up?'Suddenly talks to the reader as “you”.':'Stops talking to the reader as “you”.',
+        contr:up?'Uses contractions; the rest doesn’t.':'No contractions; the rest uses them.',
+        punct:up?'Exclamations shift the tone.':'Flatter than the paragraphs around it.',
+        long:up?'Wordier and more abstract than elsewhere.':'Plainer than the rest. Fine if intended.'}[DIMS[k]];
+      r.notes.push({m:'V',w:p,text:msg});
+    }
+  });
+  return res;
+}
+
+
+
+/* ===== Attune website: scan + results ===== */
+const $=s=>document.querySelector(s);
+const band=v=>v==null?'none':v>=80?'fit':v>=62?'drift':'off';
+const BANDC={fit:'var(--fit)',drift:'var(--drift)',off:'var(--off)',none:'var(--line)'};
+const UC={'Easy to follow':'fit','Takes some effort':'drift','Hard to follow':'off','Will understand':'fit','Might struggle':'drift','Likely lost':'off'};
+const WT={A:.35,X:.3,V:.15,R:.2};
+const NAME={A:'Audience',X:'Focus',V:'Voice',R:'Clarity'};
+const TAG={A:'Reader',X:'Focus',V:'Voice',R:'Clarity'};
+const focusLabel=v=>v>=85?'Focused':v>=70?'Mostly focused':v>=55?'Partly focused':'Unfocused';
+const verdictOf=v=>v>=86?'In tune':v>=74?'Mostly in tune':v>=60?'Slightly off':'Out of tune';
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const MAX=10000,MIN=250;
+
+const SAMPLES={
+ essay:{label:'Admissions essay',cls:'c1',title:'Personal statement',audience:'College admissions officers at selective universities. They read hundreds of essays and want a genuine, specific voice.',text:`The first bicycle I ever fixed belonged to a stranger. She wheeled it into Mr. Okafor's shop on a rainy Tuesday, the chain hanging loose like a broken necklace, and asked if anyone could help before her night shift. Mr. Okafor looked at me. I was fifteen, two weeks into the job, and I had only ever swept floors.
+
+I learned that afternoon that repair is mostly patience. I traced the chain link by link until I found the one bent plate that kept slipping. When the wheel finally spun clean, she thanked me by name, and I realized I wanted to keep earning that feeling.
+
+Through this experience I was able to leverage my skill set to optimize workflow efficiencies and deliver actionable outcomes for key stakeholders, which facilitated a holistic paradigm shift in my approach to problem-solving going forward.
+
+Honestly it was kinda crazy!! Like, I never thought I'd be super into bikes lol. But it's totally my thing now and the shop is awesome.
+
+I want to study mechanical engineering because I want to understand the systems I have been feeling my way through with greasy hands. I am still that kid tracing the chain, link by link, looking for the one piece that does not fit.`},
+ exec:{label:'Executive update',cls:'c2',title:'Ops update, week 11',audience:'Busy executives who skim on their phones between meetings and need the decision first.',text:`Q3 shipping delays are down 18%. The new carrier contract is working, and we are on track to hit the holiday target.
+
+One risk: the Reno warehouse is at 94% capacity. If October orders run hot, we will need overflow space by November 10. I recommend approving the short-term lease ($42k) this week.
+
+In order to fully contextualize the aforementioned capacity considerations, it is important to note that our historical utilization patterns, which have been subject to considerable seasonal variability over the preceding fiscal periods, suggest that the probability of exceeding operational thresholds is, in all likelihood, somewhat elevated relative to baseline expectations.
+
+Next step: a yes or no on the lease by Friday. I will send the signed draft within an hour of approval.`},
+ science:{label:'Science handout',cls:'c3',title:'How plants eat light',audience:'8th graders in a general science class.',text:`Every time you breathe out, you send tiny bits of carbon into the air. Plants catch those bits and use sunlight to turn them into food. That trade is called photosynthesis.
+
+Inside each leaf are millions of chloroplasts, small green parts that work like solar panels. They soak up light and use its energy to split water apart.
+
+The photosynthetic apparatus, localized within the thylakoid membranes, facilitates the transduction of electromagnetic radiation into chemical potential energy through a cascade of redox reactions mediated by chlorophyll-protein complexes.
+
+So the next time you eat an apple, you are eating stored sunlight. Pretty amazing, right?`},
+ cover:{label:'Cover letter',cls:'c4',title:'Cover letter',audience:'Hiring managers reading cover letters for a product design role.',text:`Last spring I redesigned the checkout flow for a campus food app that about 3,000 students use. Abandoned orders dropped by a third in the first month, mostly because I cut the steps from six to three.
+
+I start every project by watching people use the current version. For the food app, I sat in the dining hall for two lunches and took notes on where people hesitated, then tested paper sketches with ten of them.
+
+I am a highly motivated, detail-oriented team player who leverages cross-functional synergy to deliver impactful, user-centric solutions that drive key stakeholder value across the product lifecycle.
+
+I would love to bring that habit of watching first and designing second to your team. My portfolio, with the full checkout case study, is linked below.`}
+};
+
+function titleLike(t){t=t.trim();const w=t.split(/\s+/).length,ends=/[.!?…:;]["”’')\]]*$/.test(t);return (w<12&&!ends)||(w<20&&t===t.toUpperCase()&&/[A-Z]/.test(t))}
+function splitParas(text){return text.replace(/\r/g,'').split(/\n\s*\n|\n/).map(s=>s.trim()).filter(Boolean)}
+
+/* --- scoring --- */
+let M=null,sel=-1,tab='ov',showAllTips=false;
+function analyze(text,aud,title){
+  const blocks=splitParas(text.slice(0,MAX)),items=[],all=[];
+  blocks.forEach(b=>{const skip=titleLike(b);all.push({text:b,skip});if(!skip)items.push(b)});
+  const prof=interpret({audience:aud,knowledge:'',genre:'',tone:'neutral'});
+  const res=scoreAll(items,prof,1,'');
+  res.forEach(r=>{if(!r.ok)return;let tw=0,s=0;for(const k in WT){tw+=WT[k];s+=WT[k]*r[k]}r.O=clamp(s/tw);r.notes.sort((a,b)=>b.w-a.w)});
+  let k=0,n=0;all.forEach(a=>{if(!a.skip){a.r=res[k++];if(a.r.ok)a.n=++n}});
+  return {all,prof,aud,title:title||firstWordsOf(items[0]||'Untitled scan'),chars:items.join(' ').length};
+}
+function firstWordsOf(t){const w=t.split(/\s+/);return w.slice(0,7).join(' ')+(w.length>7?'…':'')}
+
+/* --- routing between the two pages --- */
+function openResults(){
+  if(location.hash!=='#scan')history.pushState(null,'','#scan');
+  showResults(true);
+}
+function showResults(animate){
+  $('#appv').hidden=false;$('#home').setAttribute('aria-hidden','true');
+  document.documentElement.style.overflow='hidden';
+  window.ATT_LENIS&&window.ATT_LENIS.stop();
+  window.ATT_BG&&window.ATT_BG(false);
+  renderAll(animate);
+  if(animate&&window.ATT_ENTER)window.ATT_ENTER();
+}
+function showHome(){
+  $('#appv').hidden=true;$('#home').removeAttribute('aria-hidden');
+  document.documentElement.style.overflow='';
+  window.ATT_LENIS&&window.ATT_LENIS.start();
+  window.ATT_BG&&window.ATT_BG(true);
+}
+window.addEventListener('popstate',()=>{if(location.hash==='#scan'&&M)showResults(false);else showHome()});
+
+function scan(){
+  const text=$('#text').value,aud=$('#audience').value;
+  if(text.trim().length<MIN){
+    $('#count').innerHTML=`<span style="color:var(--off)">Add at least ${MIN} characters to scan. You have ${text.trim().length}.</span>`;$('#text').focus();return;
+  }
+  M=analyze(text,aud,curSample&&SAMPLES[curSample].text===text?SAMPLES[curSample].title:null);sel=-1;tab='ov';showAllTips=false;
+  openResults();
+}
+
+/* --- results rendering --- */
+function scored(){return M.all.filter(a=>a.r&&a.r.ok)}
+function renderAll(animate){renderEditor();renderPanel(animate);setState(true)}
+function renderEditor(){
+  const ed=$('#editor');
+  ed.innerHTML=M.all.map((a,i)=>{
+    if(a.skip)return `<p class="title" data-i="${i}"><span class="h">${esc(a.text)}</span></p>`;
+    const c=a.r&&a.r.ok?BANDC[band(a.r.O)]:'transparent';
+    return `<p data-i="${i}" style="--c:${c}"${i===sel?' class="sel"':''}><span class="h">${esc(a.text)}</span></p>`;
+  }).join('');
+  $('#edTitle').textContent=M.title;
+  $('#edFor').textContent=M.aud.trim()?M.aud.trim():M.prof.name+' (no reader described)';
+  const words=M.all.reduce((s,a)=>s+a.text.split(/\s+/).length,0);
+  $('#edCount').textContent=`${words} words · ${scored().length} paragraphs scored`;
+}
+function avg(k){const s=scored(),W=s.reduce((x,a)=>x+a.r.f.nW,0)||1;return Math.round(s.reduce((x,a)=>x+a.r[k]*a.r.f.nW,0)/W)}
+function renderPanel(animate){
+  const s=scored(),body=$('#pbody');
+  $('#ptOv').setAttribute('aria-selected',tab==='ov');$('#ptPa').setAttribute('aria-selected',tab==='pa');
+  $('#pmeta').textContent=`${M.chars.toLocaleString()} characters · ${s.length} paragraphs`;
+  if(!s.length){body.innerHTML='<div class="empty">No paragraphs to score yet. Add a few sentences and re-check.</div>';return}
+  const O=avg('O'),b=band(O),need=s.filter(a=>a.r.O<80),und=s.filter(a=>a.r.reader==='Will understand').length;
+  let html='';
+  if(sel>=0&&M.all[sel]&&M.all[sel].r&&M.all[sel].r.ok)html+=detailHTML(M.all[sel]);
+  if(tab==='ov'){
+    const C=2*Math.PI*32;
+    html+=`<div class="pcard forrow"><label class="lbl" for="appAud">Writing for</label><div class="row"><input type="text" id="appAud" value="${esc(M.aud)}" placeholder="Describe your reader"><button class="btn sm" id="audApply">Apply</button></div></div>
+    <div class="pcard"><div class="scorebox"><div class="ring"><svg viewBox="0 0 78 78"><circle cx="39" cy="39" r="32" fill="none" stroke="var(--line)" stroke-width="7"/><circle id="ringArc" cx="39" cy="39" r="32" fill="none" stroke="${BANDC[b]}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-O/100)}" data-c="${C}" data-o="${O}"/></svg><span class="num" id="ringNum">${O}</span></div>
+      <div class="verdict"><span class="vpill" style="--c:${BANDC[b]}">${verdictOf(O)}</span><span class="vsub">Your reader will understand ${und} of ${s.length} paragraphs</span></div></div>
+      <div style="margin-top:16px"><div class="h4">Paragraph map</div><div class="map">${M.all.map((a,i)=>a.r&&a.r.ok?`<button data-go="${i}" title="¶${a.n} · ${a.r.O}" aria-label="Paragraph ${a.n}, score ${a.r.O}" style="--c:${BANDC[band(a.r.O)]};flex-grow:${Math.max(4,a.r.f.nW)}"${i===sel?' class="on"':''}></button>`:'').join('')}</div><div class="mapends"><span>Start</span><span>End</span></div></div></div>
+    <div class="pcard"><div class="h4">Whole document</div><div class="tiles">${['A','X','V','R'].map(k=>{const v=avg(k);return `<div class="tile"><div class="tt">${NAME[k]}<b>${v}</b></div><div class="bar"><i style="--c:${BANDC[band(v)]}" data-v="${v}"></i></div></div>`}).join('')}</div></div>
+    <div><div class="h4">Needs work <em>${need.length}</em><span class="sp"></span>${need.length?'<button class="nextbtn" id="nextIssue">Go to next →</button>':''}</div>
+      <div class="nw">${need.length?need.map(a=>{const i=M.all.indexOf(a);return `<button class="nwi" data-go="${i}" style="--c:${BANDC[band(a.r.O)]}"><i></i><span class="x"><b>¶${a.n}</b>${esc(a.text)}</span><span class="s">${a.r.O}</span></button>`}).join(''):'<div class="empty">Every paragraph fits your reader.</div>'}</div></div>`;
+  }else{
+    html+=`<div class="pcard" style="padding:6px 14px"><div class="rows">${s.map(a=>{const i=M.all.indexOf(a);return `<button class="prow" data-go="${i}" style="--c:${BANDC[band(a.r.O)]}"><i></i><span class="x"><b>¶${a.n}</b>${esc(a.text)}</span><span class="s">${a.r.O}</span></button>`}).join('')}</div></div>`;
+  }
+  body.innerHTML=html;
+  requestAnimationFrame(()=>body.querySelectorAll('.bar i').forEach(i=>i.style.transform=`scaleX(${i.dataset.v/100})`));
+  if(animate&&window.ATT_PANEL)window.ATT_PANEL(body);
+}
+function detailHTML(a){
+  const r=a.r,c=BANDC[band(r.O)],i=M.all.indexOf(a);
+  const notes=r.notes.length?r.notes:[{m:'A',text:'Nothing flagged. This paragraph suits your reader.'}];
+  const shown=showAllTips?notes:notes.slice(0,3);
+  return `<div class="pcard detail" style="--c:${c}"><div class="dtop"><b>¶${a.n}</b><span class="tag">${focusLabel(r.X)}</span><span class="s">${r.O}</span><button class="x" id="closeDetail" aria-label="Close details">×</button></div>
+    <div class="und"><span style="--cc:${BANDC[UC[r.anyone]]}"><em>Anyone</em>${r.anyone}</span><span style="--cc:${BANDC[UC[r.reader]]}"><em>Your reader</em>${r.reader}</span></div>
+    <div class="h4" style="margin:4px 0 8px">This paragraph</div>
+    <div class="tiles" style="margin-bottom:12px">${['A','X','V','R'].map(k=>`<div class="tile"><div class="tt">${NAME[k]}<b>${r[k]}</b></div><div class="bar"><i style="--c:${BANDC[band(r[k])]}" data-v="${r[k]}"></i></div></div>`).join('')}</div>
+    <ul class="tips">${shown.map(n=>`<li><span class="tag">${TAG[n.m]}</span><span>${n.text}${n.swaps?`<div class="swaps">${n.swaps.map(s=>`<button class="swap" data-i="${i}" data-from="${esc(s.from)}" data-to="${esc(s.to)}"><s>${esc(s.from)}</s> → ${esc(s.to)}</button>`).join('')}</div>`:''}</span></li>`).join('')}</ul>
+    ${notes.length>3?`<button class="swap" id="moreTips" style="margin-top:8px">${showAllTips?'Show less':'Show '+(notes.length-3)+' more'}</button>`:''}
+    <div class="dnote">Want a reasoned review that quotes your words? <a href="#extension" data-ext>Deep review in the extension</a></div></div>`;
+}
+function setState(fresh){const st=$('#edState');st.classList.toggle('stale',!fresh);st.querySelector('span').textContent=fresh?'Checked':'Edited · re-check to update'}
+
+/* --- interactions --- */
+function select(i,scroll){
+  sel=i;showAllTips=false;
+  document.querySelectorAll('#editor p').forEach(p=>p.classList.toggle('sel',+p.dataset.i===i));
+  renderPanel(false);$('#pbody').scrollTo({top:0,behavior:'smooth'});
+  if(scroll){const p=document.querySelector(`#editor p[data-i="${i}"]`);if(p){const box=$('#edScroll');
+    if(box.scrollHeight>box.clientHeight)box.scrollTo({top:p.offsetTop-box.clientHeight*.3,behavior:'smooth'});else p.scrollIntoView({behavior:'smooth',block:'center'});
+    window.ATT_FLASH&&window.ATT_FLASH(p)}}
+}
+function editorText(){return [...$('#editor').children].map(p=>p.innerText.replace(/ /g,' ').trim()).filter(Boolean).join('\n\n')}
+function recheck(){
+  const t=editorText();const keepSel=sel;
+  M=analyze(t,M.aud,M.title);sel=keepSel<M.all.length?keepSel:-1;
+  renderAll(true);
+}
+$('#editor').addEventListener('click',e=>{const p=e.target.closest('p[data-i]');if(p&&!p.classList.contains('title'))select(+p.dataset.i,false)});
+$('#editor').addEventListener('input',()=>setState(false));
+$('#recheck').addEventListener('click',recheck);
+$('#pbody').addEventListener('click',e=>{
+  const g=e.target.closest('[data-go]');if(g){select(+g.dataset.go,true);return}
+  if(e.target.closest('#closeDetail')){sel=-1;document.querySelectorAll('#editor p').forEach(p=>p.classList.remove('sel'));renderPanel(false);return}
+  if(e.target.closest('#moreTips')){showAllTips=!showAllTips;renderPanel(false);return}
+  if(e.target.closest('#nextIssue')){const need=scored().filter(a=>a.r.O<80).map(a=>M.all.indexOf(a));let n=need.find(x=>x>sel);if(n==null)n=need[0];select(n,true);return}
+  if(e.target.closest('#audApply')){M=analyze(editorText(),$('#appAud').value,M.title);renderAll(true);return}
+  if(e.target.closest('[data-ext]')){e.preventDefault();goHomeTo('#extension');return}
+  const sw=e.target.closest('.swap[data-from]');if(sw){
+    const i=+sw.dataset.i,p=document.querySelector(`#editor p[data-i="${i}"]`);if(!p)return;
+    const re=reFor(sw.dataset.from);let done=false;
+    p.textContent=p.textContent.replace(re,(m,w)=>{if(done)return m;done=true;const lead=m.slice(0,m.length-w.length);let t=sw.dataset.to;if(w[0]===w[0].toUpperCase())t=t[0].toUpperCase()+t.slice(1);return lead+t});
+    recheck();
+  }
+});
+$('#pbody').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='appAud'){e.preventDefault();$('#audApply').click()}});
+$('#ptOv').onclick=()=>{tab='ov';renderPanel(false)};
+$('#ptPa').onclick=()=>{tab='pa';renderPanel(false)};
+function goHomeTo(hash){history.pushState(null,'',hash);showHome();const el=document.querySelector(hash);if(el){window.ATT_LENIS?window.ATT_LENIS.scrollTo(el,{offset:-80,immediate:true}):el.scrollIntoView()}}
+$('#railHome').onclick=e=>{e.preventDefault();goHomeTo('#top')};
+$('#railExt').onclick=e=>{e.preventDefault();goHomeTo('#extension')};
+$('#edExt').onclick=e=>{e.preventDefault();goHomeTo('#extension')};
+$('#newScan').onclick=()=>{$('#text').value='';$('#exampleNone');curSample=null;updateCount();goHomeTo('#top');setTimeout(()=>$('#text').focus(),60)};
+const exMenu=$('#exMenu');
+exMenu.innerHTML=Object.entries(SAMPLES).map(([k,s])=>`<button role="menuitem" data-k="${k}"><b>${s.label}</b><span>For ${esc(s.audience.split('.')[0].toLowerCase())}</span></button>`).join('');
+$('#exBtn').onclick=e=>{e.stopPropagation();exMenu.hidden=!exMenu.hidden;$('#exBtn').setAttribute('aria-expanded',!exMenu.hidden)};
+exMenu.onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;exMenu.hidden=true;const s=SAMPLES[b.dataset.k];M=analyze(s.text,s.audience,s.title);sel=-1;tab='ov';renderAll(true)};
+document.addEventListener('click',e=>{if(!exMenu.hidden&&!exMenu.contains(e.target))exMenu.hidden=true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')exMenu.hidden=true});
+
+/* --- home page scan card --- */
+let curSample=null;
+function updateCount(){const n=$('#text').value.length;$('#count').textContent=`${n.toLocaleString()} / 10,000 characters`}
+function loadSample(k){const s=SAMPLES[k];curSample=k;$('#audience').value=s.audience;$('#text').value=s.text;updateCount()}
+Object.entries(SAMPLES).forEach(([k,s])=>{const b=document.createElement('button');b.className='chip '+s.cls;b.textContent=s.label;b.onclick=()=>loadSample(k);$('#samples').appendChild(b)});
+$('#text').addEventListener('input',updateCount);
+$('#go').addEventListener('click',scan);
+$('#tabAud').onclick=()=>{$('#paneAud').hidden=false;$('#paneDeep').hidden=true;$('#tabAud').setAttribute('aria-selected','true');$('#tabDeep').setAttribute('aria-selected','false')};
+$('#tabDeep').onclick=()=>{$('#paneAud').hidden=true;$('#paneDeep').hidden=false;$('#tabAud').setAttribute('aria-selected','false');$('#tabDeep').setAttribute('aria-selected','true')};
+$('#ctaScan').addEventListener('click',()=>setTimeout(()=>$('#text').focus({preventScroll:true}),700));
+updateCount();
+if(location.hash==='#scan')history.replaceState(null,'',location.pathname+location.search);
+</script>
+
+<!-- Motion: GSAP + ScrollTrigger + SplitText, Lenis smooth scrolling, Paper Shaders background -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+(()=>{
+  const root=document.documentElement;
+  const osReduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Motion preference: follows the computer's setting, but the pause/play button can override it.
+  let pref=null;try{pref=localStorage.getItem('attune.motion')}catch(e){}
+  let motion=pref?pref==='on':!osReduce;
+  root.classList.toggle('motion-on',motion);
+  document.querySelectorAll('textarea,#edScroll,#pbody,#appv').forEach(el=>el.setAttribute('data-lenis-prevent',''));
+  document.querySelectorAll('.ck,.extcard').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+
+  /* ---- moving background (CSS crosshatch drift + glow) ---- */
+  let bgVisible=true;
+  const bgSet=()=>root.classList.toggle('bg-paused',!(motion&&bgVisible));
+  window.ATT_BG=v=>{bgVisible=v;bgSet()};
+  bgSet();
+
+  // Pause / play button
+  const btn=document.querySelector('#motionBtn'),icon=document.querySelector('#motionIcon');
+  const paint=()=>{btn.setAttribute('aria-pressed',motion);const l=motion?'Pause background animation':'Play background animation';btn.title=l;btn.setAttribute('aria-label',l);
+    icon.innerHTML=motion?'<rect x="4" y="3" width="3" height="10" rx="1"/><rect x="9" y="3" width="3" height="10" rx="1"/>':'<path d="M5 3.5v9l8-4.5z"/>';
+    document.querySelector('.where').classList.toggle('paused',!motion)};
+  btn.addEventListener('click',()=>{motion=!motion;root.classList.toggle('motion-on',motion);try{localStorage.setItem('attune.motion',motion?'on':'off')}catch(e){}
+    bgSet();paint()});
+  paint();
+
+  if(!window.gsap)return;
+  gsap.registerPlugin(ScrollTrigger,SplitText);
+
+  /* ---- smooth scrolling ---- */
+  if(window.Lenis){try{
+    const lenis=new Lenis({autoRaf:false,anchors:{offset:-80}});
+    lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+    window.ATT_LENIS=lenis;
+  }catch(e){}}
+
+  /* ---- results page animations (used whenever motion is on) ---- */
+  window.ATT_ENTER=()=>{if(!motion)return;
+    gsap.fromTo('#appv',{opacity:0},{opacity:1,duration:.35,ease:'power2.out'});
+    gsap.from('.rail > *',{x:-12,opacity:0,duration:.4,stagger:.05,ease:'power2.out',delay:.05});
+    gsap.from('.paper',{y:18,opacity:0,duration:.55,ease:'power3.out',delay:.1});
+    gsap.from('#editor .h',{backgroundColor:'transparent',duration:.9,stagger:.12,ease:'power1.out',delay:.35});
+  };
+  window.ATT_PANEL=(body)=>{if(!motion)return;
+    gsap.from(body.children,{y:14,opacity:0,duration:.45,stagger:.07,ease:'power2.out'});
+    const arc=body.querySelector('#ringArc'),num=body.querySelector('#ringNum');
+    if(arc){const C=+arc.dataset.c,O=+arc.dataset.o,o={v:0};
+      gsap.fromTo(arc,{strokeDashoffset:C},{strokeDashoffset:C*(1-O/100),duration:1,ease:'power2.out',delay:.15});
+      gsap.to(o,{v:O,duration:1,ease:'power2.out',delay:.15,onUpdate:()=>{num.textContent=Math.round(o.v)}})}
+  };
+  window.ATT_FLASH=(p)=>{const h=p.querySelector('.h');if(!h)return;
+    gsap.fromTo(h,{backgroundColor:getComputedStyle(root).getPropertyValue('--flash')},{backgroundColor:'',duration:1.3,ease:'power1.out',clearProps:'backgroundColor'})};
+
+  /* ---- home page animations (only when motion is allowed) ---- */
+  if(!motion)return;
+  const split=SplitText.create('#headline',{type:'words'});
+  gsap.set('#hlMark',{backgroundSize:'0% 100%'});
+  gsap.timeline({defaults:{ease:'power3.out'}})
+    .from('#kicker',{y:10,opacity:0,duration:.6})
+    .from(split.words,{y:34,opacity:0,duration:.9,stagger:.06},'-=.3')
+    .to('#hlMark',{backgroundSize:'100% 100%',duration:.7,ease:'power2.inOut'},'-=.35')
+    .from('.hero .lead,.ctas',{y:16,opacity:0,duration:.7,stagger:.1},'-=.4')
+    .from('.facts div',{y:14,opacity:0,duration:.6,stagger:.07},'-=.3');
+  gsap.from('#scanCard',{y:40,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:'#scanCard',start:'top 92%',once:true}});
+  gsap.utils.toArray('.facts b').forEach((b,i)=>{const end=+b.textContent,o={v:0};b.textContent='0';
+    gsap.to(o,{v:end,duration:1.1,delay:.9+i*.12,ease:'power2.out',onUpdate:()=>{b.textContent=Math.round(o.v)}})});
+  gsap.to('#progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+  gsap.fromTo('#stepsLine',{scaleX:0},{scaleX:1,ease:'none',scrollTrigger:{trigger:'.steps',start:'top 85%',end:'top 35%',scrub:.5}});
+  gsap.from('.step .n',{scale:.4,opacity:0,duration:.5,ease:'back.out(2)',stagger:.15,scrollTrigger:{trigger:'.steps',start:'top 80%',once:true}});
+  gsap.from('.ext li',{x:-18,opacity:0,duration:.6,ease:'power3.out',stagger:.12,scrollTrigger:{trigger:'.ext ol',start:'top 85%',once:true}});
+  gsap.utils.toArray('.shead,.step,.ck,.src,.rubric,.ext,.faq details').forEach(el=>{
+    gsap.from(el,{y:36,opacity:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}})});
+  if(matchMedia('(pointer: fine)').matches){
+    document.querySelectorAll('.btn').forEach(b=>{
+      const xTo=gsap.quickTo(b,'x',{duration:.4,ease:'power3'}),yTo=gsap.quickTo(b,'y',{duration:.4,ease:'power3'});
+      b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();xTo((e.clientX-r.left-r.width/2)*.22);yTo((e.clientY-r.top-r.height/2)*.35)});
+      b.addEventListener('pointerleave',()=>gsap.to(b,{x:0,y:0,duration:.6,ease:'elastic.out(1,.45)'}));
+    });
+  }
+  document.querySelector('#go').addEventListener('click',e=>{
+    for(let k=0;k<8;k++){const sp=document.createElement('span');sp.className='spark';document.body.appendChild(sp);const a=k/8*360;
+      gsap.set(sp,{left:e.clientX-1,top:e.clientY-10,rotation:a,scaleY:.2,opacity:1});
+      gsap.to(sp,{scaleY:1,opacity:0,x:Math.sin(a*Math.PI/180)*22,y:-Math.cos(a*Math.PI/180)*22,duration:.5,ease:'power2.out',onComplete:()=>sp.remove()})}
+  });
+  document.querySelectorAll('.faq details').forEach(d=>{const s=d.querySelector('summary'),p=d.querySelector('p');
+    s.addEventListener('click',e=>{e.preventDefault();
+      if(d.open)gsap.to(p,{height:0,opacity:0,duration:.28,ease:'power2.in',onComplete:()=>{d.open=false;gsap.set(p,{clearProps:'height,opacity'})}});
+      else{d.open=true;gsap.from(p,{height:0,opacity:0,duration:.4,ease:'power2.out',clearProps:'height,opacity'})}})});
+})();
+</script>
+
+</body>
+</html>

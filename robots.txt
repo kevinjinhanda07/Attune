@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kevinjinhanda07.github.io/Attune/sitemap.xml

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Attune</title>
+<meta name="description" content="How Attune handles your writing: the website scan runs in your browser and sends nothing; Deep review sends one paragraph to Anthropic only with your own key.">
+<link rel="canonical" href="https://kevinjinhanda07.github.io/Attune/privacy.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Geist:wght@400;500&display=swap">
+<style>
+:root{--bg:#FAFAF8;--ink:#121311;--muted:#63645F;--line:#E5E5E1;--accent:#5F7350;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Geist",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:56px max(20px,env(safe-area-inset-left,0px)) 80px}
+a{color:var(--accent)}
+.back{font-size:14px;text-decoration:none}
+h1{font:800 clamp(34px,5vw,48px)/1.05 "Inter Tight",system-ui,sans-serif;letter-spacing:-.04em;margin:24px 0 8px}
+h2{font:700 21px/1.2 "Inter Tight",system-ui,sans-serif;letter-spacing:-.02em;margin:36px 0 8px}
+p,li{color:var(--muted)}
+.upd{font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="./">← Back to Attune</a>
+<h1>Privacy</h1>
+<p class="upd">Last updated November 4, 2026</p>
+
+<h2>The website scan</h2>
+<p>When you paste text into the scan box on this website and click Scan, all of the checking happens inside your own browser. Your text is not sent to any server, not stored by Attune, and disappears when you close the page.</p>
+
+<h2>The Chrome extension and the Docs and Word add-ins</h2>
+<p>The extension and add-ins read the document you have open so they can score it. That reading happens on your computer or inside your own Google or Microsoft account. Your reader description and settings are saved with the document or in your browser. Attune does not run its own servers and does not collect your documents.</p>
+<p>If you connect your Google account in the Chrome extension, Attune uses Google's Docs API only to color paragraphs and apply word swaps you click, in the document you have open.</p>
+
+<h2>Deep review</h2>
+<p>Deep review is optional and only runs when you click it. It sends the paragraph you chose, the paragraphs on either side, a short outline of the document and your reader description to Anthropic's API, using an API key you provide. Anthropic's own privacy policy applies to that request. Your API key is stored only in your browser or your own Google account.</p>
+
+<h2>Analytics and cookies</h2>
+<p>This website does not use analytics, ads or tracking cookies. GitHub, which hosts the site, may keep standard server logs.</p>
+
+<h2>Contact</h2>
+<p>Questions about privacy can be sent through the Attune project on GitHub: <a href="https://github.com/kevinjinhanda07/Attune">github.com/kevinjinhanda07/Attune</a>.</p>
+</main>
+</body>
+</html>
