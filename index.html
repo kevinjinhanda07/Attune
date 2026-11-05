@@ -329,9 +329,49 @@ footer a{color:var(--muted);text-decoration:none}
   .sbody,.sfootbar{padding-left:16px;padding-right:16px}
   .facts div{padding:4px 14px}
   section.blk{padding-block:64px}
-  .top .btn{display:none}
+  .top #navExt{display:none}
+  .top #signupBtn .wide{display:none}
+  .top .right:has(#loginBtn:not([hidden])) #motionBtn{display:none}
+  .top .right{gap:6px}
   .edtop .btn{display:none}
 }
+/* accounts: sign in, account menu, saved scans */
+.acct{position:relative}
+.avatar{width:38px;height:38px;border-radius:50%;border:1px solid color-mix(in oklab,var(--sage) 60%,var(--line));background:var(--sage);color:#242522;font-weight:600;font-size:15px;display:grid;place-items:center}
+.amenu{position:absolute;right:0;top:46px;z-index:40;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:6px;min-width:250px;display:flex;flex-direction:column}
+.amenu .who{padding:8px 10px 10px;border-bottom:1px solid var(--line-soft);margin-bottom:4px;font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.amenu .who b{display:block;color:var(--ink);font-weight:500;font-size:14px}
+.amenu button{border:0;background:transparent;text-align:left;padding:9px 10px;border-radius:8px;font-size:14px}
+.amenu button:hover{background:var(--sunk)}
+.modal{position:fixed;inset:0;z-index:90;background:rgba(18,19,17,.35);display:grid;place-items:center;padding:20px}
+.mcard{position:relative;width:min(420px,100%);background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:28px;display:flex;flex-direction:column;gap:12px}
+.mcard h2{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.03em}
+.mcard p{margin:0;color:var(--muted);font-size:14.5px}
+.mx{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:22px;color:var(--faint);line-height:1;padding:4px 6px}
+.gbtn{height:46px;border:1px solid var(--line);border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500}
+.gbtn:hover{border-color:var(--faint)}
+.or{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--faint)}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+#emailForm{display:flex;flex-direction:column;gap:8px}
+#authEmail{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;background:var(--surface)}
+#authEmail:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 15%,transparent)}
+#emailForm .btn{justify-content:center;height:46px}
+.amsg{font-size:13.5px!important;min-height:1em}
+.amsg.ok{color:var(--accent)!important}.amsg.err{color:var(--off)!important}
+.fine{font-size:12.5px!important;color:var(--faint)!important}
+.fine a{color:var(--muted)}
+.slist{display:flex;flex-direction:column;gap:6px;max-height:55vh;overflow:auto}
+.srow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px}
+.srow:hover{border-color:var(--faint)}
+.srow button.open{border:0;background:transparent;text-align:left;min-width:0;padding:0}
+.srow b{display:block;font-weight:500;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srow span{font-size:12px;color:var(--faint)}
+.srow .sc{font:500 13px var(--mono)}
+.srow .del{border:0;background:transparent;color:var(--faint);font-size:18px;line-height:1;padding:2px 4px}
+.srow .del:hover{color:var(--off)}
+.savestate{font-size:12.5px;color:var(--faint);white-space:nowrap}
+.savestate a{color:var(--accent);font-weight:500}
+
 /* Lenis smooth scrolling (its stylesheet, inlined) */
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
@@ -353,7 +393,17 @@ html.lenis,html.lenis body{height:auto}
     <span class="sp"></span>
     <div class="right">
       <button class="iconbtn" id="motionBtn" aria-pressed="true" title="Pause background animation" aria-label="Pause background animation"><svg viewBox="0 0 16 16" fill="currentColor" id="motionIcon"><rect x="4" y="3" width="3" height="10" rx="1"/><rect x="9" y="3" width="3" height="10" rx="1"/></svg></button>
-      <a class="btn" href="#extension">Get the extension</a>
+      <a class="btn" href="#extension" id="navExt">Get the extension</a>
+      <button class="btn ghost sm" id="loginBtn" hidden>Log in</button>
+      <button class="btn sm" id="signupBtn" hidden>Sign up<span class="wide"> free</span></button>
+      <div class="acct" id="acct" hidden>
+        <button class="avatar" id="avatarBtn" aria-haspopup="true" aria-expanded="false" aria-label="Your account">A</button>
+        <div class="amenu" id="amenu" hidden role="menu">
+          <div class="who"><b id="whoName"></b><span id="whoEmail"></span></div>
+          <button id="menuScans" role="menuitem">My scans</button>
+          <button id="menuOut" role="menuitem">Sign out</button>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -493,7 +543,7 @@ html.lenis,html.lenis body{height:auto}
   </div>
 </section>
 </main>
-<footer><div class="wrap"><span>© 2026 Attune</span><span><a href="#how">How it works</a> · <a href="#research">Research</a> · <a href="#extension">Extension</a> · <a href="privacy.html">Privacy</a></span></div></footer>
+<footer><div class="wrap"><span>© 2026 Attune</span><span><a href="#how">How it works</a> · <a href="#research">Research</a> · <a href="#extension">Extension</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div></footer>
 </div>
 
 <!-- ===== Results workspace (opens after Scan) ===== -->
@@ -503,6 +553,7 @@ html.lenis,html.lenis body{height:auto}
     <button class="rbtn primary" id="newScan"><span class="bub"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></span>New scan</button>
     <button class="rbtn" id="exBtn" aria-haspopup="true" aria-expanded="false"><span class="bub"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 2h5l3 3v9H4z"/><path d="M9 2v3h3M6 9h4M6 11.5h3"/></svg></span>Examples</button>
     <a class="rbtn" href="#extension" id="railExt"><span class="bub"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M6 2.5h4v2a1.5 1.5 0 0 0 3 0v-.5h.5v4h-1a1.5 1.5 0 0 0 0 3h1v3h-11v-11z"/></svg></span>Extension</a>
+    <button class="rbtn" id="railScans" hidden><span class="bub"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3l2 1.5"/></svg></span>My scans</button>
     <div class="menu" id="exMenu" hidden role="menu"></div>
   </nav>
 
@@ -510,6 +561,7 @@ html.lenis,html.lenis body{height:auto}
     <header class="edtop">
       <span class="edtitle" id="edTitle">Untitled scan</span>
       <span class="state" id="edState"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="m5.5 8 1.8 1.8L10.5 6.5"/></svg><span>Checked</span></span>
+      <span class="savestate" id="saveState" aria-live="polite"></span>
       <span class="sp"></span>
       <a class="btn ghost sm" href="#extension" id="edExt">Use it in Google Docs</a>
     </header>
@@ -536,6 +588,31 @@ html.lenis,html.lenis body{height:auto}
       <div class="meta"><span id="pmeta"></span><span>Quick estimates</span></div>
     </div>
   </aside>
+</div>
+
+<div class="modal" id="authModal" hidden role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="mcard">
+    <button class="mx" id="authClose" aria-label="Close">×</button>
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M8 4.83A3.6 3.6 0 0 1 8 11.17A3.6 3.6 0 0 1 8 4.83Z" fill="#B6C5A5"/><circle cx="6.3" cy="8" r="3.6" stroke="#242522" stroke-width="1.3"/><circle cx="9.7" cy="8" r="3.6" stroke="#242522" stroke-width="1.3"/></svg></span>
+    <h2 id="authTitle">Sign up for Attune</h2>
+    <p id="authSub">Free. Save your scans and pick them up on any computer.</p>
+    <button class="gbtn" id="googleBtn"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Continue with Google</button>
+    <div class="or">or</div>
+    <form id="emailForm" novalidate>
+      <label class="lbl" for="authEmail">Email</label>
+      <input type="email" id="authEmail" autocomplete="email" placeholder="you@example.com">
+      <button class="btn" id="emailBtn" type="submit">Email me a sign-in link</button>
+    </form>
+    <p class="amsg" id="authMsg" role="status"></p>
+    <p class="fine">No password needed. By continuing you agree to Attune's <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy policy</a>.</p>
+  </div>
+</div>
+<div class="modal" id="scansModal" hidden role="dialog" aria-modal="true" aria-labelledby="scansTitle">
+  <div class="mcard" style="width:min(560px,100%)">
+    <button class="mx" id="scansClose" aria-label="Close">×</button>
+    <h2 id="scansTitle">My scans</h2>
+    <div class="slist" id="scanList" data-lenis-prevent></div>
+  </div>
 </div>
 
 <script>
@@ -784,8 +861,8 @@ function scan(){
   if(text.trim().length<MIN){
     $('#count').innerHTML=`<span style="color:var(--off)">Add at least ${MIN} characters to scan. You have ${text.trim().length}.</span>`;$('#text').focus();return;
   }
-  M=analyze(text,aud,curSample&&SAMPLES[curSample].text===text?SAMPLES[curSample].title:null);sel=-1;tab='ov';showAllTips=false;
-  openResults();
+  M=analyze(text,aud,curSample&&SAMPLES[curSample].text===text?SAMPLES[curSample].title:null);sel=-1;tab='ov';showAllTips=false;M.scanId=null;
+  openResults();window.ATT_SAVE&&window.ATT_SAVE();
 }
 
 /* --- results rendering --- */
@@ -854,8 +931,8 @@ function select(i,scroll){
 function editorText(){return [...$('#editor').children].map(p=>p.innerText.replace(/ /g,' ').trim()).filter(Boolean).join('\n\n')}
 function recheck(){
   const t=editorText();const keepSel=sel;
-  M=analyze(t,M.aud,M.title);sel=keepSel<M.all.length?keepSel:-1;
-  renderAll(true);
+  const id=M.scanId;M=analyze(t,M.aud,M.title);M.scanId=id;sel=keepSel<M.all.length?keepSel:-1;
+  renderAll(true);window.ATT_SAVE&&window.ATT_SAVE();
 }
 $('#editor').addEventListener('click',e=>{const p=e.target.closest('p[data-i]');if(p&&!p.classList.contains('title'))select(+p.dataset.i,false)});
 $('#editor').addEventListener('input',()=>setState(false));
@@ -865,7 +942,7 @@ $('#pbody').addEventListener('click',e=>{
   if(e.target.closest('#closeDetail')){sel=-1;document.querySelectorAll('#editor p').forEach(p=>p.classList.remove('sel'));renderPanel(false);return}
   if(e.target.closest('#moreTips')){showAllTips=!showAllTips;renderPanel(false);return}
   if(e.target.closest('#nextIssue')){const need=scored().filter(a=>a.r.O<80).map(a=>M.all.indexOf(a));let n=need.find(x=>x>sel);if(n==null)n=need[0];select(n,true);return}
-  if(e.target.closest('#audApply')){M=analyze(editorText(),$('#appAud').value,M.title);renderAll(true);return}
+  if(e.target.closest('#audApply')){const id=M.scanId;M=analyze(editorText(),$('#appAud').value,M.title);M.scanId=id;renderAll(true);window.ATT_SAVE&&window.ATT_SAVE();return}
   if(e.target.closest('[data-ext]')){e.preventDefault();goHomeTo('#extension');return}
   const sw=e.target.closest('.swap[data-from]');if(sw){
     const i=+sw.dataset.i,p=document.querySelector(`#editor p[data-i="${i}"]`);if(!p)return;
@@ -899,8 +976,117 @@ $('#go').addEventListener('click',scan);
 $('#tabAud').onclick=()=>{$('#paneAud').hidden=false;$('#paneDeep').hidden=true;$('#tabAud').setAttribute('aria-selected','true');$('#tabDeep').setAttribute('aria-selected','false')};
 $('#tabDeep').onclick=()=>{$('#paneAud').hidden=true;$('#paneDeep').hidden=false;$('#tabAud').setAttribute('aria-selected','false');$('#tabDeep').setAttribute('aria-selected','true')};
 $('#ctaScan').addEventListener('click',()=>setTimeout(()=>$('#text').focus({preventScroll:true}),700));
+// For the sign-in code: what to save, and how to reopen a saved scan
+window.ATT_DOC=()=>M?{id:M.scanId||null,title:M.title||'Untitled scan',audience:M.aud||'',body:M.all.map(a=>a.text).join('\n\n'),score:scored().length?avg('O'):null}:null;
+window.ATT_SETID=id=>{if(M)M.scanId=id};
+window.ATT_OPEN=row=>{M=analyze(row.body,row.audience||'',row.title);M.scanId=row.id;sel=-1;tab='ov';showAllTips=false;openResults()};
 updateCount();
 if(location.hash==='#scan')history.replaceState(null,'',location.pathname+location.search);
+</script>
+
+<!-- Accounts: Supabase sign-in. Settings come from config.js on the public site. -->
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+(()=>{
+  const cfg=window.ATTUNE_CONFIG||{};const $=q=>document.querySelector(q);
+  const ready=!!(cfg.supabaseUrl&&cfg.supabaseAnonKey&&!/PASTE/i.test(cfg.supabaseUrl+cfg.supabaseAnonKey)&&window.supabase&&window.supabase.createClient);
+  if(!ready)return;                                   // sign-in not set up yet: the site works as before
+  const sb=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey,{auth:{flowType:'pkce',persistSession:true,detectSessionInUrl:true}});
+  const back=cfg.siteUrl||(location.origin+location.pathname);
+  let user=null,saving=false,pendingSave=false;
+  $('#navExt').hidden=true;
+
+  function nameOf(u){const m=u.user_metadata||{};return m.full_name||m.name||(u.email||'').split('@')[0]||'You'}
+  function show(){
+    const s=!!user;$('#loginBtn').hidden=s;$('#signupBtn').hidden=s;$('#acct').hidden=!s;$('#railScans').hidden=!s;
+    if(s){const n=nameOf(user);$('#avatarBtn').textContent=(n[0]||'A').toUpperCase();$('#whoName').textContent=n;$('#whoEmail').textContent=user.email||''}
+    if(!$('#appv').hidden)saveState();
+  }
+  function saveState(t){
+    const el=$('#saveState');
+    if(t!=null){el.textContent=t;return}
+    if(user){el.textContent='';return}
+    el.innerHTML='<a href="#" id="saveSign">Sign in to save this scan</a>';
+    $('#saveSign').onclick=ev=>{ev.preventDefault();pendingSave=true;openAuth('signup')};
+  }
+  sb.auth.getSession().then(({data})=>{user=data.session?data.session.user:null;show()});
+  sb.auth.onAuthStateChange((_e,session)=>{
+    const was=!!user;user=session?session.user:null;show();
+    if(user&&!was){closeAuth();if(pendingSave){pendingSave=false;save()}}
+  });
+
+  /* sign-in window */
+  const modal=$('#authModal');let lastFocus=null;
+  function msg(t,err){const m=$('#authMsg');m.textContent=t;m.className='amsg '+(err?'err':'ok')}
+  function openAuth(mode){
+    lastFocus=document.activeElement;
+    $('#authTitle').textContent=mode==='login'?'Log in to Attune':'Sign up for Attune';
+    $('#authSub').textContent=mode==='login'?'Welcome back. Your saved scans are waiting.':'Free. Save your scans and pick them up on any computer.';
+    $('#authMsg').textContent='';$('#authMsg').className='amsg';modal.hidden=false;setTimeout(()=>$('#googleBtn').focus(),30);
+  }
+  function closeAuth(){if(modal.hidden)return;modal.hidden=true;lastFocus&&lastFocus.focus&&lastFocus.focus()}
+  window.ATT_SIGNIN=openAuth;
+  $('#loginBtn').onclick=()=>openAuth('login');
+  $('#signupBtn').onclick=()=>openAuth('signup');
+  $('#authClose').onclick=closeAuth;
+  modal.addEventListener('click',e=>{if(e.target===modal)closeAuth()});
+  $('#googleBtn').onclick=async()=>{const{error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:back}});if(error)msg(error.message,true)};
+  $('#emailForm').onsubmit=async e=>{
+    e.preventDefault();const email=$('#authEmail').value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('Enter a valid email address.',true);$('#authEmail').focus();return}
+    $('#emailBtn').disabled=true;const{error}=await sb.auth.signInWithOtp({email,options:{emailRedirectTo:back}});$('#emailBtn').disabled=false;
+    if(error)msg(error.message,true);else msg('Check your email for a sign-in link. Open it in this same browser.',false);
+  };
+  $('#authEmail').addEventListener('input',()=>{const m=$('#authMsg');if(m.classList.contains('err'))m.textContent=''});
+
+  /* account menu */
+  const menu=$('#amenu');
+  $('#avatarBtn').onclick=e=>{e.stopPropagation();menu.hidden=!menu.hidden;$('#avatarBtn').setAttribute('aria-expanded',!menu.hidden)};
+  document.addEventListener('click',e=>{if(!menu.hidden&&!menu.contains(e.target))menu.hidden=true});
+  $('#menuOut').onclick=async()=>{menu.hidden=true;await sb.auth.signOut()};
+  $('#menuScans').onclick=()=>{menu.hidden=true;openScans()};
+  $('#railScans').onclick=openScans;
+  document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;closeAuth();$('#scansModal').hidden=true;menu.hidden=true});
+
+  /* save each scan to the account */
+  async function save(){
+    const d=window.ATT_DOC&&window.ATT_DOC();
+    if(!user){saveState();return}
+    if(!d||saving)return;
+    saving=true;saveState('Saving…');
+    const row={title:d.title.slice(0,200),audience:d.audience.slice(0,1000),body:d.body.slice(0,20000),score:d.score,updated_at:new Date().toISOString()};
+    const add=()=>sb.from('scans').insert(row).select('id').single();
+    let res;
+    try{
+      res=d.id?await sb.from('scans').update(row).eq('id',d.id).select('id').single():await add();
+      if(d.id&&(res.error||!res.data))res=await add();   // the saved copy was deleted: save a new one
+    }catch(err){res={error:err}}
+    saving=false;
+    if(res.error){saveState('Couldn’t save. Check your connection.');return}
+    window.ATT_SETID(res.data.id);saveState('Saved to your account');
+  }
+  window.ATT_SAVE=save;
+
+  /* My scans */
+  const esc2=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  async function openScans(){
+    const m=$('#scansModal'),list=$('#scanList');m.hidden=false;list.innerHTML='<p class="fine">Loading your scans…</p>';
+    const{data,error}=await sb.from('scans').select('id,title,audience,body,score,updated_at').order('updated_at',{ascending:false}).limit(50);
+    if(error){list.innerHTML='<p class="amsg err">Couldn’t load your scans. Try again.</p>';return}
+    if(!data.length){list.innerHTML='<p class="fine">No saved scans yet. Scan something while signed in and it shows up here.</p>';return}
+    list.innerHTML=data.map(r=>`<div class="srow" data-id="${r.id}"><button class="open"><b>${esc2(r.title)}</b><span>${new Date(r.updated_at).toLocaleString()}</span></button><span class="sc">${r.score??'–'}</span><button class="del" aria-label="Delete ${esc2(r.title)}" title="Delete">×</button></div>`).join('');
+    list.onclick=async e=>{
+      const rowEl=e.target.closest('.srow');if(!rowEl)return;const r=data.find(x=>x.id===rowEl.dataset.id);
+      if(e.target.closest('.del')){rowEl.style.opacity=.4;const{error}=await sb.from('scans').delete().eq('id',r.id);
+        if(error){rowEl.style.opacity=1;return}rowEl.remove();
+        const cur=window.ATT_DOC&&window.ATT_DOC();if(cur&&cur.id===r.id){window.ATT_SETID(null);saveState(user?'':undefined)}if(!list.querySelector('.srow'))list.innerHTML='<p class="fine">No saved scans yet.</p>';return}
+      m.hidden=true;window.ATT_OPEN(r);saveState('Saved to your account');
+    };
+  }
+  $('#scansClose').onclick=()=>{$('#scansModal').hidden=true};
+  $('#scansModal').addEventListener('click',e=>{if(e.target.id==='scansModal')e.target.hidden=true});
+})();
 </script>
 
 <!-- Motion: GSAP + ScrollTrigger + SplitText, Lenis smooth scrolling, Paper Shaders background -->

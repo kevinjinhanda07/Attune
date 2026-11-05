@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy · Attune</title>
-<meta name="description" content="How Attune handles your writing: the website scan runs in your browser and sends nothing; Deep review sends one paragraph to Anthropic only with your own key.">
+<meta name="description" content="How Attune handles your writing: the website scan runs in your browser and sends nothing; Deep review sends one paragraph to Anthropic only with your own key. Signed-in users' scans are saved privately to their account.">
 <link rel="canonical" href="https://kevinjinhanda07.github.io/Attune/privacy.html">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Geist:wght@400;500&display=swap">
 <style>
@@ -27,7 +27,12 @@ p,li{color:var(--muted)}
 <p class="upd">Last updated November 4, 2026</p>
 
 <h2>The website scan</h2>
-<p>When you paste text into the scan box on this website and click Scan, all of the checking happens inside your own browser. Your text is not sent to any server, not stored by Attune, and disappears when you close the page.</p>
+<p>When you paste text into the scan box on this website and click Scan, all of the checking happens inside your own browser. If you are not signed in, your text is not sent to any server, not stored by Attune, and disappears when you close the page.</p>
+
+<h2>Accounts and saved scans</h2>
+<p>You can create a free account with Google or with an email sign-in link. Accounts are run on Supabase. We store your email address, your name if Google provides it, and the scans you make while signed in: the title, the reader description, the text you scanned and its overall score. Only you can see your saved scans. Each account keeps up to 100 scans, and the oldest are removed first.</p>
+<p>You can delete any saved scan from My scans at any time. To delete your whole account and everything in it, contact us at the link below.</p>
+<p>Signing in stores a login token in your browser so you stay signed in. It is not used for tracking.</p>
 
 <h2>The Chrome extension and the Docs and Word add-ins</h2>
 <p>The extension and add-ins read the document you have open so they can score it. That reading happens on your computer or inside your own Google or Microsoft account. Your reader description and settings are saved with the document or in your browser. Attune does not run its own servers and does not collect your documents.</p>
@@ -37,7 +42,7 @@ p,li{color:var(--muted)}
 <p>Deep review is optional and only runs when you click it. It sends the paragraph you chose, the paragraphs on either side, a short outline of the document and your reader description to Anthropic's API, using an API key you provide. Anthropic's own privacy policy applies to that request. Your API key is stored only in your browser or your own Google account.</p>
 
 <h2>Analytics and cookies</h2>
-<p>This website does not use analytics, ads or tracking cookies. GitHub, which hosts the site, may keep standard server logs.</p>
+<p>This website does not use analytics, ads or tracking cookies. GitHub, which hosts the site, and Supabase, which runs accounts, may keep standard server logs.</p>
 
 <h2>Contact</h2>
 <p>Questions about privacy can be sent through the Attune project on GitHub: <a href="https://github.com/kevinjinhanda07/Attune">github.com/kevinjinhanda07/Attune</a>.</p>
