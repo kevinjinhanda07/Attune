@@ -22,3 +22,19 @@ Back: [[Home]] · Install: [[Install-Skills]]
 | `skills/roblox-testing-debugging` | Jest, MicroProfiler, console | [[MOC-Testing]] |
 | `skills/roblox-publishing-liveops` | launch, analytics, events | [[MOC-Publishing]] |
 | `skills/roblox-game-design` | loops, retention, genres | [[MOC-Design]] |
+
+## 🔥 Hit-game skills
+Plan: [[Hit-Game-Blueprint]] · Why: [[Hit-Game-Patterns]]
+
+| Skill folder | Covers | Note |
+|---|---|---|
+| `skills/roblox-viral-game-concept` | generate + score original concepts | [[Hit-Game-Patterns]] |
+| `skills/roblox-core-loop-progression` | economy, rarity, rebirth math | [[Core-Loop-Template]] |
+| `skills/roblox-trading-inventory` | secure trades, anti-dupe | [[Data-and-ProfileStore]] |
+| `skills/roblox-liveops-events` | weekly updates, timed/live events | [[Publishing-and-LiveOps]] |
+| `skills/roblox-first-session-onboarding` | first 60 s, funnels | [[Launch-Checklist]] |
+| `skills/roblox-thumbnail-icon-title` | icon, thumbnails, qPTR | [[Launch-Checklist]] |
+| `skills/roblox-social-virality` | invites, co-op, clips, creators | [[Hit-Game-Patterns]] |
+| `skills/roblox-analytics-retention` | D1/D7, funnels, daily rewards | [[Retention-Toolkit]] |
+| `skills/roblox-mobile-first-performance` | low-end budgets, thumbs | [[Performance-Budgets]] |
+| `skills/roblox-ethical-monetization-policy` | fair shop, paid random items | [[Policy-Checklist]] |

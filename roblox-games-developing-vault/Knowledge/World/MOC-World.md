@@ -8,6 +8,9 @@ updated: 2026-11-06
 # MOC – Map & world building
 Back: [[Home]] · Skill: `skills/roblox-world-building` ([[MOC-Skills]])
 
+## Also
+- Skill `roblox-mobile-first-performance`
+
 ## Notes
 - [[Lighting-Presets]] – copy-paste moods
 - [[Performance-Budgets]] – what to keep under

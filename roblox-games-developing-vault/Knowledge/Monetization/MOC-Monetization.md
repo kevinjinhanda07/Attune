@@ -8,6 +8,9 @@ updated: 2026-11-06
 # MOC – Monetization & policy
 Back: [[Home]] · Skill: `skills/roblox-monetization` ([[MOC-Skills]])
 
+## Also
+- Skill `roblox-ethical-monetization-policy` (fair, non-pay-to-win) · `roblox-trading-inventory` · [[Hit-Game-Patterns]] §10
+
 ## Notes
 - [[Purchases-Cheatsheet]] – passes, products, subs
 - [[Policy-Checklist]] – stay compliant

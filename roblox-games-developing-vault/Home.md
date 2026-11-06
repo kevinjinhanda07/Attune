@@ -14,6 +14,11 @@ Turn Claude into a Roblox game-dev partner. Start at the top.
 2. [[Project-Template]] – Rojo layout + daily workflow
 3. [[Install-Skills]] – put the Claude skills to work
 
+## 🔥 Make a top-trending game
+- [[Hit-Game-Patterns]] – what 2024–26 hits share
+- [[Hit-Game-Blueprint]] – concept → launch → 3 months live-ops
+- [[MOC-Case-Studies]] – 12 hit-game breakdowns
+
 ## Maps of content
 - [[MOC-Tools]] – tools & AI integrations (vetted)
 - [[MOC-Scripting]] – Luau, modules, remotes
@@ -28,7 +33,8 @@ Turn Claude into a Roblox game-dev partner. Start at the top.
 - [[MOC-Testing]] – tests, debugging, profiling
 - [[MOC-Publishing]] – launch, analytics, live-ops
 - [[MOC-Design]] – core loops, genre templates
-- [[MOC-Skills]] – Claude skills in `skills/`
+- [[MOC-Skills]] – 22 Claude skills in `skills/`
+- [[MOC-Case-Studies]] – hit games, mechanics & lessons
 
 ## Lists
 - [[Rejected]] – tools we said no to, and why

@@ -8,6 +8,8 @@ updated: 2026-11-06
 # 🧠 Install the Claude skills
 Back: [[Home]] · List: [[MOC-Skills]]
 
+22 skills: 12 core + 10 hit-game skills ([[MOC-Skills]]).
+
 Each skill = a folder with `SKILL.md`. Claude loads it automatically when your request matches its `description`.
 
 ## Option A – for all your projects (user level)
