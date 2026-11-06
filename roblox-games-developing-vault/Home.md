@@ -19,6 +19,9 @@ Turn Claude into a Roblox game-dev partner. Start at the top.
 - [[Hit-Game-Blueprint]] – concept → launch → 3 months live-ops
 - [[MOC-Case-Studies]] – 12 hit-game breakdowns
 
+## 🎲 Current project
+- [[MOC-Aura-Clash]] – Aura Clash RNG: pitch, economy, 8-week plan, setup
+
 ## Maps of content
 - [[MOC-Tools]] – tools & AI integrations (vetted)
 - [[MOC-Scripting]] – Luau, modules, remotes
