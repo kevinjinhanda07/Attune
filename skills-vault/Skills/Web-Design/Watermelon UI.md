@@ -7,7 +7,7 @@ type: server
 risk: low
 verdict: APPROVE
 vetted: 2026-11-06
-installed: no
+installed: yes (Attune repo)
 ---
 # Watermelon UI
 

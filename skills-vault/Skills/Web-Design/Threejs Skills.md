@@ -7,7 +7,7 @@ type: skill
 risk: caution
 verdict: CAUTION
 vetted: 2026-11-06
-installed: no
+installed: yes (Attune repo)
 ---
 # Threejs Skills
 

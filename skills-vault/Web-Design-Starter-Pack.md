@@ -3,6 +3,8 @@ tags: [starter, web-design]
 ---
 # Web Design Starter Pack
 
+**Installed in the Attune repo (main, 2026-11-06):** plugins in `.claude/settings.json`, 28 pinned skills in `.claude/skills/`, Watermelon MCP in `.mcp.json`, workflow in `CLAUDE.md`. Claude follows it whenever you ask for a webpage there.
+
 For award-level sites that don't look AI-made. Install in this order (scan each with [[SkillSpector]] first).
 
 ## Install order

@@ -45,7 +45,7 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[Superpowers]] | Coding-Workflow | plugin | APPROVE | no | Claude Code |
 | [[Chrome DevTools MCP]] | Testing-Browser | server | APPROVE | no | my computer (Node + Chrome) |
 | [[iOS Simulator Skill]] | Testing-Browser | skill | APPROVE | no | my Mac (Xcode) |
-| [[Playwright MCP]] | Testing-Browser | server | APPROVE | no | my computer (Node) |
+| [[Playwright MCP]] | Testing-Browser | server | APPROVE | yes (Attune repo) | my computer (Node) |
 | [[Webapp Testing]] | Testing-Browser | skill | APPROVE | no | Claude Code |
 | [[Agent Reach]] | Research-Web | CLI | CAUTION | no | my computer (uv + browser) |
 | [[Brave Search MCP]] | Research-Web | server | APPROVE | no | my computer (Node) |
@@ -70,7 +70,7 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[MCP Toolbox for Databases]] | Databases | server | APPROVE | no | my computer (Node/binary) |
 | [[Neon]] | Databases | plugin | APPROVE | no | Claude Code |
 | [[Supabase]] | Databases | plugin | CAUTION | no | Claude Code |
-| [[Supabase Agent Skills]] | Databases | skill | APPROVE | no | Claude Code |
+| [[Supabase Agent Skills]] | Databases | skill | APPROVE | yes (Attune repo) | Claude Code |
 | [[Claude Security]] | Security | plugin | APPROVE | no | Claude Code |
 | [[Security Guidance]] | Security | plugin | APPROVE | no | Claude Code |
 | [[Semgrep]] | Security | plugin | CAUTION | no | Claude Code |
@@ -91,23 +91,23 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[Remotion Skills]] | Creative-Media | skill | APPROVE | no | Claude Code |
 | [[FreeLLMAPI]] | AI-Models | server | CAUTION | no | local server (Docker/app) |
 | [[Hugging Face Skills]] | AI-Models | plugin | APPROVE | no | Claude Code |
-| [[Marketing Skills]] | Marketing | skill | APPROVE | no | Claude Code |
-| [[Emil Kowalski Design Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
+| [[Marketing Skills]] | Marketing | skill | APPROVE | yes (Attune repo) | Claude Code |
+| [[Emil Kowalski Design Skills]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
 | [[Figma MCP]] | Web-Design | server | APPROVE | no | Claude Code |
-| [[Frontend Design]] | Web-Design | skill | APPROVE | no | Claude Code |
-| [[GSAP Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
-| [[Impeccable]] | Web-Design | skill | APPROVE | no | Claude Code |
-| [[Modern Web Guidance]] | Web-Design | skill | APPROVE | no | Claude Code |
+| [[Frontend Design]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
+| [[GSAP Skills]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
+| [[Impeccable]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
+| [[Modern Web Guidance]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
 | [[Superdesign]] | Web-Design | plugin | CAUTION | no | Claude Code |
-| [[Taste Skill]] | Web-Design | skill | APPROVE | no | Claude Code + Chrome |
-| [[Threejs Skills]] | Web-Design | skill | CAUTION | no | Claude Code |
-| [[UI Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
+| [[Taste Skill]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code + Chrome |
+| [[Threejs Skills]] | Web-Design | skill | CAUTION | yes (Attune repo) | Claude Code |
+| [[UI Skills]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
 | [[UI UX Pro Max]] | Web-Design | skill | APPROVE | no | Claude Code |
-| [[Vercel Agent Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
-| [[Watermelon UI]] | Web-Design | server | APPROVE | no | Claude Code |
+| [[Vercel Agent Skills]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
+| [[Watermelon UI]] | Web-Design | server | APPROVE | yes (Attune repo) | Claude Code |
 | [[Web Artifacts Builder]] | Web-Design | skill | APPROVE | no | Claude Code |
-| [[Web Asset Generator]] | Web-Design | skill | APPROVE | no | Claude Code + Python |
-| [[Web Quality Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
+| [[Web Asset Generator]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code + Python |
+| [[Web Quality Skills]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
 
 All vetted 2026-11-06.
 
