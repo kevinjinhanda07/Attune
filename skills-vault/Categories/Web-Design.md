@@ -7,6 +7,7 @@ Award-level, anti-slop websites: motion, 3D, taste, performance.
 
 | Skill | Verdict | What |
 |---|---|---|
+| [[Emil Kowalski Design Skills]] | APPROVE | Animation and design-engineering skills from Emil Kowalski (maker of Sonner and Vaul; has worked at Vercel and Linear). |
 | [[Figma MCP]] | APPROVE | Official Figma MCP: design context, variables, code from frames. |
 | [[Frontend Design]] | APPROVE | Anthropic's skill for distinctive, non-generic UI. |
 | [[GSAP Skills]] | APPROVE | Official GSAP skills: core, timelines, ScrollTrigger, plugins, React. |
@@ -20,6 +21,7 @@ Award-level, anti-slop websites: motion, 3D, taste, performance.
 | [[Vercel Agent Skills]] | APPROVE | React/Next.js best practices, web design guidelines, React View Transitions. |
 | [[Watermelon UI]] | APPROVE | Free React + Tailwind component and landing-page catalog Claude can search and install. |
 | [[Web Artifacts Builder]] | APPROVE | React + Tailwind + shadcn/ui single-file builds. |
+| [[Web Asset Generator]] | APPROVE | Favicons, PWA app icons and social share (Open Graph) images. |
 | [[Web Quality Skills]] | APPROVE | Addy Osmani's Core Web Vitals, performance, a11y, SEO audits. |
 
 Also for web design: [[Playwright MCP]] (screenshot review loop), [[Chrome DevTools MCP]] (performance traces), [[Anthropic Creative Skills]] (generative art).

@@ -50,7 +50,7 @@ npx skills add cloudai-x/threejs-skills
 ```
 /plugin install chrome-devtools-mcp@claude-plugins-official
 ```
-Also useful: [[Context7]] (current Three.js/GSAP/Motion docs), [[Vercel Agent Skills]] (React/Next.js), [[UI Skills]] (`fixing-motion-performance`).
+Also useful: [[Emil Kowalski Design Skills]] (Linear/Vercel-feel animation), [[Web Asset Generator]] (favicons, OG images), [[Context7]] (current Three.js/GSAP/Motion docs), [[Vercel Agent Skills]] (React/Next.js), [[UI Skills]] (`fixing-motion-performance`).
 
 Don't stack all the design-taste skills on one task. Pick **Taste Skill** *or* **Impeccable** as the lead; they have different opinions.
 

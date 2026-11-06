@@ -3,25 +3,26 @@ tags: [index]
 ---
 # Skills Vault
 
-Curated Claude Code skills, plugins and MCP servers. **71 vetted** (57 APPROVE, 14 CAUTION) · 3 in [[Rejected]].
+Curated Claude Code skills, plugins and MCP servers. **79 vetted** (63 APPROVE, 16 CAUTION) · 3 in [[Rejected]].
 
-**Start here:** [[Starter-Pack]] · [[Web-Design-Starter-Pack]] · [[Wow-Techniques]] · [[Web-Design-Resources]] · [[Inbox]] · [[Rejected]]
+**Start here:** [[Starter-Pack]] · [[Web-Design-Starter-Pack]] · [[Wow-Techniques]] · [[Web-Design-Resources]] · [[Skills-vs-MCP]] · [[Inbox]] · [[Rejected]]
 
 ## Categories
 - [[Categories/Official|Official]]: [[Claude API Skill]], [[MCP Builder]], [[Skill Creator]]
 - [[Categories/Coding-Workflow|Coding Workflow]]: [[Code Review Plugin]], [[Code Simplifier]], [[Commit Commands]], [[Feature Dev]], [[Hookify]], [[LSP Plugins]], [[Matt Pocock Skills]], [[Ponytail]], [[PR Review Toolkit]], [[Ralph Loop]], [[Superpowers]]
-- [[Categories/Testing-Browser|Testing Browser]]: [[Chrome DevTools MCP]], [[Playwright MCP]], [[Webapp Testing]]
-- [[Categories/Research-Web|Research Web]]: [[Agent Reach]], [[Brave Search MCP]], [[Context7]], [[Exa Search]], [[Firecrawl]], [[MCP Reference Servers]]
-- [[Categories/Docs-Writing|Docs Writing]]: [[Doc Coauthoring and Internal Comms]], [[Document Skills]]
+- [[Categories/Testing-Browser|Testing Browser]]: [[Chrome DevTools MCP]], [[iOS Simulator Skill]], [[Playwright MCP]], [[Webapp Testing]]
+- [[Categories/Research-Web|Research Web]]: [[Agent Reach]], [[Brave Search MCP]], [[Context7]], [[Exa Search]], [[Find Skills]], [[Firecrawl]], [[MCP Reference Servers]]
+- [[Categories/Docs-Writing|Docs Writing]]: [[Doc Coauthoring and Internal Comms]], [[Document Skills]], [[Frontend Slides]]
 - [[Categories/Data-Analytics|Data Analytics]]: [[dbt MCP]], [[DuckDB Skills]]
 - [[Categories/DevOps-Cloud|DevOps Cloud]]: [[AWS MCP Servers]], [[Azure]], [[Cloudflare]], [[Grafana MCP]], [[Kubernetes MCP]], [[Sentry]], [[Terraform MCP]], [[Vercel Plugin]]
-- [[Categories/Databases|Databases]]: [[MCP Toolbox for Databases]], [[Neon]], [[Supabase]]
+- [[Categories/Databases|Databases]]: [[MCP Toolbox for Databases]], [[Neon]], [[Supabase]], [[Supabase Agent Skills]]
 - [[Categories/Security|Security]]: [[Claude Security]], [[Security Guidance]], [[Semgrep]], [[SkillSpector]], [[Trail of Bits Skills]]
 - [[Categories/Memory-Context|Memory Context]]: [[Basic Memory]], [[CLAUDE-md Management]], [[Claude-Mem]]
 - [[Categories/Productivity|Productivity]]: [[Atlassian]], [[GitHub MCP]], [[Google Workspace MCP]], [[Linear]], [[Notion]], [[Slack]]
-- [[Categories/Creative-Media|Creative Media]]: [[Anthropic Creative Skills]], [[Lemo-Opuscar]], [[Remotion Skills]]
+- [[Categories/Creative-Media|Creative Media]]: [[Anthropic Creative Skills]], [[HyperFrames]], [[Lemo-Opuscar]], [[Remotion Skills]]
 - [[Categories/AI-Models|AI Models]]: [[FreeLLMAPI]], [[Hugging Face Skills]]
-- [[Categories/Web-Design|Web Design]]: [[Figma MCP]], [[Frontend Design]], [[GSAP Skills]], [[Impeccable]], [[Modern Web Guidance]], [[Superdesign]], [[Taste Skill]], [[Threejs Skills]], [[UI Skills]], [[UI UX Pro Max]], [[Vercel Agent Skills]], [[Watermelon UI]], [[Web Artifacts Builder]], [[Web Quality Skills]]
+- [[Categories/Marketing|Marketing]]: [[Marketing Skills]]
+- [[Categories/Web-Design|Web Design]]: [[Emil Kowalski Design Skills]], [[Figma MCP]], [[Frontend Design]], [[GSAP Skills]], [[Impeccable]], [[Modern Web Guidance]], [[Superdesign]], [[Taste Skill]], [[Threejs Skills]], [[UI Skills]], [[UI UX Pro Max]], [[Vercel Agent Skills]], [[Watermelon UI]], [[Web Artifacts Builder]], [[Web Asset Generator]], [[Web Quality Skills]]
 
 ## Status
 Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first · REJECT = see [[Rejected]].
@@ -43,16 +44,19 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[Ralph Loop]] | Coding-Workflow | plugin | CAUTION | no | Claude Code |
 | [[Superpowers]] | Coding-Workflow | plugin | APPROVE | no | Claude Code |
 | [[Chrome DevTools MCP]] | Testing-Browser | server | APPROVE | no | my computer (Node + Chrome) |
+| [[iOS Simulator Skill]] | Testing-Browser | skill | APPROVE | no | my Mac (Xcode) |
 | [[Playwright MCP]] | Testing-Browser | server | APPROVE | no | my computer (Node) |
 | [[Webapp Testing]] | Testing-Browser | skill | APPROVE | no | Claude Code |
 | [[Agent Reach]] | Research-Web | CLI | CAUTION | no | my computer (uv + browser) |
 | [[Brave Search MCP]] | Research-Web | server | APPROVE | no | my computer (Node) |
 | [[Context7]] | Research-Web | server | APPROVE | no | Claude Code |
 | [[Exa Search]] | Research-Web | server | APPROVE | no | Claude Code |
+| [[Find Skills]] | Research-Web | skill | CAUTION | no | Claude Code |
 | [[Firecrawl]] | Research-Web | server | APPROVE | no | Claude Code |
 | [[MCP Reference Servers]] | Research-Web | server | APPROVE | no | my computer (Node/uv) |
 | [[Doc Coauthoring and Internal Comms]] | Docs-Writing | skill | APPROVE | no | Claude Code |
 | [[Document Skills]] | Docs-Writing | skill | APPROVE | no | Claude Code |
+| [[Frontend Slides]] | Docs-Writing | skill | APPROVE | no | Claude Code |
 | [[dbt MCP]] | Data-Analytics | server | APPROVE | no | my computer (uv) |
 | [[DuckDB Skills]] | Data-Analytics | skill | APPROVE | no | my computer (DuckDB) |
 | [[AWS MCP Servers]] | DevOps-Cloud | server | CAUTION | no | my computer (uv) + AWS |
@@ -66,6 +70,7 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[MCP Toolbox for Databases]] | Databases | server | APPROVE | no | my computer (Node/binary) |
 | [[Neon]] | Databases | plugin | APPROVE | no | Claude Code |
 | [[Supabase]] | Databases | plugin | CAUTION | no | Claude Code |
+| [[Supabase Agent Skills]] | Databases | skill | APPROVE | no | Claude Code |
 | [[Claude Security]] | Security | plugin | APPROVE | no | Claude Code |
 | [[Security Guidance]] | Security | plugin | APPROVE | no | Claude Code |
 | [[Semgrep]] | Security | plugin | CAUTION | no | Claude Code |
@@ -81,10 +86,13 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[Notion]] | Productivity | plugin | APPROVE | no | Claude Code |
 | [[Slack]] | Productivity | plugin | APPROVE | no | Claude Code |
 | [[Anthropic Creative Skills]] | Creative-Media | skill | APPROVE | no | Claude Code |
+| [[HyperFrames]] | Creative-Media | plugin | CAUTION | no | Claude Code + Node/ffmpeg |
 | [[Lemo-Opuscar]] | Creative-Media | plugin | CAUTION | no | Claude Code + Node/ffmpeg/Python |
 | [[Remotion Skills]] | Creative-Media | skill | APPROVE | no | Claude Code |
 | [[FreeLLMAPI]] | AI-Models | server | CAUTION | no | local server (Docker/app) |
 | [[Hugging Face Skills]] | AI-Models | plugin | APPROVE | no | Claude Code |
+| [[Marketing Skills]] | Marketing | skill | APPROVE | no | Claude Code |
+| [[Emil Kowalski Design Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
 | [[Figma MCP]] | Web-Design | server | APPROVE | no | Claude Code |
 | [[Frontend Design]] | Web-Design | skill | APPROVE | no | Claude Code |
 | [[GSAP Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
@@ -98,6 +106,7 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[Vercel Agent Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
 | [[Watermelon UI]] | Web-Design | server | APPROVE | no | Claude Code |
 | [[Web Artifacts Builder]] | Web-Design | skill | APPROVE | no | Claude Code |
+| [[Web Asset Generator]] | Web-Design | skill | APPROVE | no | Claude Code + Python |
 | [[Web Quality Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
 
 All vetted 2026-11-06.
