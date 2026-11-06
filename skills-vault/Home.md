@@ -3,9 +3,9 @@ tags: [index]
 ---
 # Skills Vault
 
-Curated Claude Code skills, plugins and MCP servers. **70 vetted** (56 APPROVE, 14 CAUTION) · 3 in [[Rejected]].
+Curated Claude Code skills, plugins and MCP servers. **71 vetted** (57 APPROVE, 14 CAUTION) · 3 in [[Rejected]].
 
-**Start here:** [[Starter-Pack]] · [[Web-Design-Starter-Pack]] · [[Wow-Techniques]] · [[Inbox]] · [[Rejected]]
+**Start here:** [[Starter-Pack]] · [[Web-Design-Starter-Pack]] · [[Wow-Techniques]] · [[Web-Design-Resources]] · [[Inbox]] · [[Rejected]]
 
 ## Categories
 - [[Categories/Official|Official]]: [[Claude API Skill]], [[MCP Builder]], [[Skill Creator]]
@@ -21,7 +21,7 @@ Curated Claude Code skills, plugins and MCP servers. **70 vetted** (56 APPROVE, 
 - [[Categories/Productivity|Productivity]]: [[Atlassian]], [[GitHub MCP]], [[Google Workspace MCP]], [[Linear]], [[Notion]], [[Slack]]
 - [[Categories/Creative-Media|Creative Media]]: [[Anthropic Creative Skills]], [[Lemo-Opuscar]], [[Remotion Skills]]
 - [[Categories/AI-Models|AI Models]]: [[FreeLLMAPI]], [[Hugging Face Skills]]
-- [[Categories/Web-Design|Web Design]]: [[Figma MCP]], [[Frontend Design]], [[GSAP Skills]], [[Impeccable]], [[Modern Web Guidance]], [[Superdesign]], [[Taste Skill]], [[Threejs Skills]], [[UI Skills]], [[UI UX Pro Max]], [[Vercel Agent Skills]], [[Web Artifacts Builder]], [[Web Quality Skills]]
+- [[Categories/Web-Design|Web Design]]: [[Figma MCP]], [[Frontend Design]], [[GSAP Skills]], [[Impeccable]], [[Modern Web Guidance]], [[Superdesign]], [[Taste Skill]], [[Threejs Skills]], [[UI Skills]], [[UI UX Pro Max]], [[Vercel Agent Skills]], [[Watermelon UI]], [[Web Artifacts Builder]], [[Web Quality Skills]]
 
 ## Status
 Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first · REJECT = see [[Rejected]].
@@ -96,6 +96,7 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[UI Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
 | [[UI UX Pro Max]] | Web-Design | skill | APPROVE | no | Claude Code |
 | [[Vercel Agent Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
+| [[Watermelon UI]] | Web-Design | server | APPROVE | no | Claude Code |
 | [[Web Artifacts Builder]] | Web-Design | skill | APPROVE | no | Claude Code |
 | [[Web Quality Skills]] | Web-Design | skill | APPROVE | no | Claude Code |
 

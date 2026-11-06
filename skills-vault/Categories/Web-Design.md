@@ -18,11 +18,12 @@ Award-level, anti-slop websites: motion, 3D, taste, performance.
 | [[UI Skills]] | APPROVE | Small focused UI fixers: baseline UI, motion performance, a11y, metadata. |
 | [[UI UX Pro Max]] | APPROVE | Searchable style/palette/font-pairing database for UI decisions. |
 | [[Vercel Agent Skills]] | APPROVE | React/Next.js best practices, web design guidelines, React View Transitions. |
+| [[Watermelon UI]] | APPROVE | Free React + Tailwind component and landing-page catalog Claude can search and install. |
 | [[Web Artifacts Builder]] | APPROVE | React + Tailwind + shadcn/ui single-file builds. |
 | [[Web Quality Skills]] | APPROVE | Addy Osmani's Core Web Vitals, performance, a11y, SEO audits. |
 
 Also for web design: [[Playwright MCP]] (screenshot review loop), [[Chrome DevTools MCP]] (performance traces), [[Anthropic Creative Skills]] (generative art).
 
-Start here: [[Web-Design-Starter-Pack]] · [[Wow-Techniques]]
+Start here: [[Web-Design-Starter-Pack]] · [[Wow-Techniques]] · [[Web-Design-Resources]]
 
 [[Home]]

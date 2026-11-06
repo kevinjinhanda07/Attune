@@ -60,7 +60,9 @@ Don't stack all the design-taste skills on one task. Pick **Taste Skill** *or* *
 | Framework | **Astro** (content/portfolio) or **Next.js** (app-like) | Astro ships little JS and has built-in View Transitions |
 | Smooth scroll | **Lenis** | Industry standard on Awwwards sites; syncs with ScrollTrigger |
 | Animation | **GSAP** + ScrollTrigger, SplitText, Flip | All plugins free; timeline control |
-| React UI motion | **Motion** (ex-Framer Motion) | Layout animations, gestures, springs |
+| React UI motion | **Motion** (ex-Framer Motion) or React Spring | Layout animations, gestures, springs |
+| Palette & fonts | Realtime Colors → CSS variables | Test on a real UI before building ([[Web-Design-Resources]]) |
+| References | Godly, Awwwards | Collect 3–5 before starting ([[Web-Design-Resources]]) |
 | Page transitions | View Transitions API → Barba.js for non-Astro static sites | Native first |
 | 3D / WebGL | **Three.js** or **React Three Fiber** + drei; **OGL** for light effects | Three.js powers most 3D award sites |
 | Shaders | Custom GLSL (noise, displacement, gradients) | The "signature" look |
