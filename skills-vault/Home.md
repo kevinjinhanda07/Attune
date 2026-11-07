@@ -3,7 +3,7 @@ tags: [index]
 ---
 # Skills Vault
 
-Curated Claude Code skills, plugins and MCP servers. **79 vetted** (63 APPROVE, 16 CAUTION) · 3 in [[Rejected]].
+Curated Claude Code skills, plugins and MCP servers. **80 vetted** (63 APPROVE, 17 CAUTION) · 3 in [[Rejected]].
 
 **Start here:** [[Starter-Pack]] · [[Web-Design-Starter-Pack]] · [[Wow-Techniques]] · [[Web-Design-Resources]] · [[Skills-vs-MCP]] · [[Inbox]] · [[Rejected]]
 
@@ -17,7 +17,7 @@ Curated Claude Code skills, plugins and MCP servers. **79 vetted** (63 APPROVE, 
 - [[Categories/DevOps-Cloud|DevOps Cloud]]: [[AWS MCP Servers]], [[Azure]], [[Cloudflare]], [[Grafana MCP]], [[Kubernetes MCP]], [[Sentry]], [[Terraform MCP]], [[Vercel Plugin]]
 - [[Categories/Databases|Databases]]: [[MCP Toolbox for Databases]], [[Neon]], [[Supabase]], [[Supabase Agent Skills]]
 - [[Categories/Security|Security]]: [[Claude Security]], [[Security Guidance]], [[Semgrep]], [[SkillSpector]], [[Trail of Bits Skills]]
-- [[Categories/Memory-Context|Memory Context]]: [[Basic Memory]], [[CLAUDE-md Management]], [[Claude-Mem]]
+- [[Categories/Memory-Context|Memory Context]]: [[Basic Memory]], [[CLAUDE-md Management]], [[Claude-Mem]], [[Graphify]]
 - [[Categories/Productivity|Productivity]]: [[Atlassian]], [[GitHub MCP]], [[Google Workspace MCP]], [[Linear]], [[Notion]], [[Slack]]
 - [[Categories/Creative-Media|Creative Media]]: [[Anthropic Creative Skills]], [[HyperFrames]], [[Lemo-Opuscar]], [[Remotion Skills]]
 - [[Categories/AI-Models|AI Models]]: [[FreeLLMAPI]], [[Hugging Face Skills]]
@@ -79,6 +79,7 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[Basic Memory]] | Memory-Context | server | APPROVE | no | my computer (uv) |
 | [[CLAUDE-md Management]] | Memory-Context | plugin | APPROVE | no | Claude Code |
 | [[Claude-Mem]] | Memory-Context | plugin | CAUTION | no | Claude Code |
+| [[Graphify]] | Memory-Context | CLI | CAUTION | no | my computer (uv) |
 | [[Atlassian]] | Productivity | plugin | APPROVE | no | Claude Code |
 | [[GitHub MCP]] | Productivity | server | APPROVE | no | Claude Code |
 | [[Google Workspace MCP]] | Productivity | server | CAUTION | no | my computer (uv) |
