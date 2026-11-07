@@ -6,7 +6,7 @@ license: Apache-2.0
 type: CLI
 risk: caution
 verdict: CAUTION
-vetted: 2026-11-06
+vetted: 2026-11-07
 installed: no
 ---
 # Graphify
@@ -37,7 +37,7 @@ Scan first: `skillspector scan https://github.com/Graphify-Labs/graphify --no-ll
 - Docs/PDF/image/video extraction sends that content to the LLM you configure. `/graphify <github URL>` clones and fetches remote content (SSRF-guarded).
 - Overkill for small projects like Attune; worth it on large codebases.
 
-**Verdict: CAUTION** (2026-11-06). Read README, pyproject, skill.md, always-on CLAUDE.md block, install.py hook code and network code: no telemetry (query log off by default), app.graphify.com only printed as a link. Caution = global config edits + hooks on every tool call.
+**Verdict: CAUTION** (2026-11-07). Read README, pyproject, skill.md, always-on CLAUDE.md block, install.py hook code and network code: no telemetry (query log off by default), app.graphify.com only printed as a link. Caution = global config edits + hooks on every tool call.
 
 ## Links
 - Repo: https://github.com/Graphify-Labs/graphify

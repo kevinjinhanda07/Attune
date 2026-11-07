@@ -110,7 +110,7 @@ Verdicts: **APPROVE** = fine to install · **CAUTION** = read the caveats first 
 | [[Web Asset Generator]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code + Python |
 | [[Web Quality Skills]] | Web-Design | skill | APPROVE | yes (Attune repo) | Claude Code |
 
-All vetted 2026-11-06.
+Vetted 2026-11-06 unless the note says otherwise.
 
 ## Adding a new skill
 1. **Scan with SkillSpector first:** `skillspector scan <repo URL> --no-llm`
