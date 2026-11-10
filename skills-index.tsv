@@ -1,0 +1,420 @@
+category	tool	skill	verdict	source
+Official	Skill Creator	skill-creator	APPROVE	https://github.com/anthropics/skills
+Official	MCP Builder	mcp-builder	APPROVE	https://github.com/anthropics/skills
+Official	Claude API Skill	claude-api	APPROVE	https://github.com/anthropics/skills
+Coding-Workflow	Superpowers	brainstorming	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	diagnosing-superpowers	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	dispatching-parallel-agents	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	executing-plans	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	finishing-a-development-branch	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	receiving-code-review	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	requesting-code-review	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	subagent-driven-development	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	systematic-debugging	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	using-git-worktrees	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	using-superpowers	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	verification-before-completion	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	writing-plans	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Superpowers	writing-skills	APPROVE	https://github.com/obra/superpowers
+Coding-Workflow	Matt Pocock Skills	ask-matt	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	code-review	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	codebase-design	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	diagnosing-bugs	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	domain-modeling	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	grill-with-docs	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	implement-spec	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	implement	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	improve-codebase-architecture	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	pr	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	prototype	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	research	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	retro	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	setup-matt-pocock-skills	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	tdd	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	to-spec	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	to-tickets	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	triage	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	wayfinder	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	wizard	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	grill-me	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	grilling	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	handoff	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	teach	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	to-questionnaire	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	wait-what	APPROVE	https://github.com/mattpocock/skills
+Coding-Workflow	Matt Pocock Skills	writing-for-agents	APPROVE	https://github.com/mattpocock/skills
+Testing-Browser	Chrome DevTools MCP	a11y-debugging	APPROVE	https://github.com/ChromeDevTools/chrome-devtools-mcp
+Testing-Browser	Chrome DevTools MCP	chrome-devtools-cli	APPROVE	https://github.com/ChromeDevTools/chrome-devtools-mcp
+Testing-Browser	Chrome DevTools MCP	chrome-devtools	APPROVE	https://github.com/ChromeDevTools/chrome-devtools-mcp
+Testing-Browser	Chrome DevTools MCP	cookie-debugging	APPROVE	https://github.com/ChromeDevTools/chrome-devtools-mcp
+Testing-Browser	Chrome DevTools MCP	debug-optimize-lcp	APPROVE	https://github.com/ChromeDevTools/chrome-devtools-mcp
+Testing-Browser	Chrome DevTools MCP	memory-leak-debugging	APPROVE	https://github.com/ChromeDevTools/chrome-devtools-mcp
+Testing-Browser	Chrome DevTools MCP	troubleshooting	APPROVE	https://github.com/ChromeDevTools/chrome-devtools-mcp
+Testing-Browser	Webapp Testing	webapp-testing	APPROVE	https://github.com/anthropics/skills
+Research-Web	Context7	context7-cli	APPROVE	https://github.com/upstash/context7
+Research-Web	Context7	context7-mcp	APPROVE	https://github.com/upstash/context7
+Research-Web	Context7	find-docs	APPROVE	https://github.com/upstash/context7
+Research-Web	Exa Search	Exa-Agent	APPROVE	https://github.com/exa-labs/exa-mcp-server
+Research-Web	Exa Search	search	APPROVE	https://github.com/exa-labs/exa-mcp-server
+Docs-Writing	Doc Coauthoring and Internal Comms	doc-coauthoring	APPROVE	https://github.com/anthropics/skills
+Docs-Writing	Doc Coauthoring and Internal Comms	internal-comms	APPROVE	https://github.com/anthropics/skills
+Data-Analytics	DuckDB Skills	attach-db	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	convert-file	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	duckdb-docs	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	install-duckdb	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	query	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	read-file	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	read-memories	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	s3-explore	APPROVE	https://github.com/duckdb/duckdb-skills
+Data-Analytics	DuckDB Skills	spatial	APPROVE	https://github.com/duckdb/duckdb-skills
+DevOps-Cloud	Cloudflare	agents-sdk	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	basin	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	cf-cli	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	cloudflare-email-service	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	cloudflare-one-migrations	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	cloudflare-one	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	cloudflare	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	durable-objects	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	gateway-workers	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	k2	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	nextjs-on-cloudflare	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	sandbox-migrate-to-next	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	sandbox-next	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	sandbox-stable	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	turnstile-spin	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	web-perf	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	workers-best-practices	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	workers-profiling	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Cloudflare	wrangler	APPROVE	https://github.com/cloudflare/skills
+DevOps-Cloud	Sentry	sentry-create-alert	APPROVE	https://github.com/getsentry/sentry-mcp
+DevOps-Cloud	Sentry	sentry-debug-issue	APPROVE	https://github.com/getsentry/sentry-mcp
+DevOps-Cloud	Sentry	sentry-fix-stack-traces	APPROVE	https://github.com/getsentry/sentry-mcp
+DevOps-Cloud	Sentry	sentry-get-started	APPROVE	https://github.com/getsentry/sentry-mcp
+DevOps-Cloud	Sentry	sentry-instrument	APPROVE	https://github.com/getsentry/sentry-mcp
+DevOps-Cloud	Sentry	sentry-otel-exporter-setup	APPROVE	https://github.com/getsentry/sentry-mcp
+DevOps-Cloud	Sentry	sentry-setup-releases	APPROVE	https://github.com/getsentry/sentry-mcp
+DevOps-Cloud	Sentry	sentry-snapshots-cocoa	APPROVE	https://github.com/getsentry/sentry-mcp
+Databases	Supabase	supabase-postgres-best-practices	CAUTION	https://github.com/supabase-community/supabase-mcp
+Databases	Supabase	supabase	CAUTION	https://github.com/supabase-community/supabase-mcp
+Databases	Neon	neon	APPROVE	https://github.com/neondatabase/agent-skills
+Security	Trail of Bits Skills	agentic-actions-auditor	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	audit-context-building	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	algorand-vulnerability-scanner	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	audit-prep-assistant	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	cairo-vulnerability-scanner	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	code-maturity-assessor	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	cosmos-vulnerability-scanner	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	guidelines-advisor	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	secure-workflow-guide	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	solana-vulnerability-scanner	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	substrate-vulnerability-scanner	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	token-integration-analyzer	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	ton-vulnerability-scanner	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	burpsuite-project-parser	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	c-review	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	chrome-mcp-troubleshooting	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	code-improver	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	pr-improver	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	skill-improver	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	constant-time-analysis	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	interpreting-culture-index	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	devcontainer-setup	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	differential-review	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	dimensional-analysis	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	dwarf-expert	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	entry-point-analyzer	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	firebase-apk-scanner	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	fp-check	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	gh-cli	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	github-triage	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	goal-prompt	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	let-fate-decide	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	modern-cpp	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	modern-python	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	mutation-testing	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	open-sourcing	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	implement-patch	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	patching-bugs	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	prove-patch	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	reproduce-bug	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	validate-bug	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	post-patch-validation	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	property-based-testing	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	adjudicate-regression	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	hunt-regressions	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	prepare-regression	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	regression-hunt	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	replay-regression	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	report-regressions	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	reproduce-regression	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	review-walkthrough	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	rust-review	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	second-opinion	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	semgrep-rule-creator	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	semgrep-rule-variant-creator	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	sharp-edges	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	spec-to-code-compliance	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	codeql	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	sarif-parsing	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	semgrep	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	supply-chain-risk-auditor	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	audit-augmentation	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	crypto-protocol-diagram	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	diagramming-code	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	genotoxic	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	graph-evolution	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	mermaid-to-proverif	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	slicing-code-context	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	trailmark-finding-triage	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	trailmark-review-gate	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	trailmark-structural	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	trailmark-summary	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	trailmark-variant-neighborhood	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	trailmark	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	vector-forge	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	variant-analysis	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	vulnerability-triage-brocards	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	writing-lean-proofs	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	yara-rule-authoring	APPROVE	https://github.com/trailofbits/skills
+Security	Trail of Bits Skills	zeroize-audit	APPROVE	https://github.com/trailofbits/skills
+Productivity	Notion	notion-build-my-engineering-wiki	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-create-my-team-handbook	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-database-designer	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-knowledge-capture	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-meeting-intelligence	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-organize-my-semester	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-plan-marketing-campaigns	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-research-documentation	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-set-up-my-project	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-setup	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-spec-to-implementation	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Notion	notion-weekly-project-digest	APPROVE	https://github.com/makenotion/claude-code-notion-plugin
+Productivity	Slack	block-kit	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Slack	create-slack-app	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Slack	deploy-slack-app	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Slack	slack-api	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Slack	slack-cli	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Slack	slack-docs	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Slack	slack-messaging	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Slack	slack-search	APPROVE	https://github.com/slackapi/slack-mcp-plugin
+Productivity	Atlassian	atlassian-mcp-code-search	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	capture-tasks-from-meeting-notes	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	generate-status-report	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	jira-sprint-dashboard	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	search-company-knowledge	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	spec-to-backlog	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	triage-issue	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	capture-tasks-from-meeting-notes--Atlassian	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	generate-status-report--Atlassian	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	jira-sprint-dashboard--Atlassian	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	search-company-knowledge--Atlassian	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	spec-to-backlog--Atlassian	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Productivity	Atlassian	triage-issue--Atlassian	APPROVE	https://github.com/atlassian/atlassian-mcp-server
+Creative-Media	Remotion Skills	remotion-best-practices	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-captions	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-create	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-docs	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-interactivity	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-license	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-maps	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-markup	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-multimedia	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-render	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-saas	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-studio	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Remotion Skills	remotion-upgrade	APPROVE	https://github.com/remotion-dev/skills
+Creative-Media	Anthropic Creative Skills	algorithmic-art	APPROVE	https://github.com/anthropics/skills
+Creative-Media	Anthropic Creative Skills	brand-guidelines	APPROVE	https://github.com/anthropics/skills
+Creative-Media	Anthropic Creative Skills	canvas-design	APPROVE	https://github.com/anthropics/skills
+Creative-Media	Anthropic Creative Skills	slack-gif-creator	APPROVE	https://github.com/anthropics/skills
+Creative-Media	Anthropic Creative Skills	theme-factory	APPROVE	https://github.com/anthropics/skills
+AI-Models	Hugging Face Skills	hf-cli	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	hf-cloud-aws-context-discovery	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	hf-cloud-python-env-setup	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	hf-cloud-sagemaker-deployment-planner	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	hf-cloud-sagemaker-iam-preflight	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	hf-cloud-sagemaker-production-defaults	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	hf-cloud-serving-image-selection	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	hf-mem	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-best	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-community-evals	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-datasets	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-gradio	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-llm-trainer	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-local-models	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-lora-space-builder	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-paper-publisher	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-papers	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-spaces	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-tool-builder	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-trackio	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-vision-trainer	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	huggingface-zerogpu	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	train-sentence-transformers	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	transformers-js	APPROVE	https://github.com/huggingface/skills
+AI-Models	Hugging Face Skills	trl-training	APPROVE	https://github.com/huggingface/skills
+Web-Design	Frontend Design	frontend-design	APPROVE	https://github.com/anthropics/skills
+Web-Design	Web Artifacts Builder	web-artifacts-builder	APPROVE	https://github.com/anthropics/skills
+Web-Design	GSAP Skills	gsap-core	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	GSAP Skills	gsap-frameworks	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	GSAP Skills	gsap-performance	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	GSAP Skills	gsap-plugins	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	GSAP Skills	gsap-react	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	GSAP Skills	gsap-scrolltrigger	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	GSAP Skills	gsap-timeline	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	GSAP Skills	gsap-utils	APPROVE	https://github.com/greensock/gsap-skills
+Web-Design	Taste Skill	design-taste-frontend	APPROVE	https://github.com/Leonxlnx/taste-skill
+Web-Design	Impeccable	impeccable	APPROVE	https://github.com/pbakaus/impeccable
+Web-Design	UI Skills	baseline-ui	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	component-canvas	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	create-canvas	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	create-design-md	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	fixing-accessibility	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	fixing-metadata	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	fixing-motion-performance	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	improve-ui	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI Skills	ui-skills-root	APPROVE	https://github.com/ibelick/ui-skills
+Web-Design	UI UX Pro Max	ui-ux-pro-max	APPROVE	https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+Web-Design	Vercel Agent Skills	vercel-composition-patterns	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	deploy-to-vercel	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	vercel-react-best-practices	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	vercel-react-native-skills	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	vercel-react-view-transitions	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	vercel-cli-with-tokens	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	vercel-optimize	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	web-design-guidelines	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Vercel Agent Skills	writing-guidelines	APPROVE	https://github.com/vercel-labs/agent-skills
+Web-Design	Web Quality Skills	accessibility	APPROVE	https://github.com/addyosmani/web-quality-skills
+Web-Design	Web Quality Skills	best-practices	APPROVE	https://github.com/addyosmani/web-quality-skills
+Web-Design	Web Quality Skills	core-web-vitals	APPROVE	https://github.com/addyosmani/web-quality-skills
+Web-Design	Web Quality Skills	performance	APPROVE	https://github.com/addyosmani/web-quality-skills
+Web-Design	Web Quality Skills	seo	APPROVE	https://github.com/addyosmani/web-quality-skills
+Web-Design	Web Quality Skills	web-quality-audit	APPROVE	https://github.com/addyosmani/web-quality-skills
+Web-Design	Modern Web Guidance	modern-web-guidance	APPROVE	https://github.com/GoogleChrome/modern-web-guidance
+Web-Design	Threejs Skills	threejs-animation	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-asset-pipeline	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-fundamentals	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-geometry	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-interaction	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-lighting	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-loaders	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-materials	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-performance	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-postprocessing	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-react-three-fiber	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-shaders	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Threejs Skills	threejs-textures	CAUTION	https://github.com/CloudAI-X/threejs-skills
+Web-Design	Figma MCP	figma-code-connect	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-code-workflows	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-create-new-file	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-design-to-code	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-generate-design	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-generate-diagram	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-generate-library	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-generative-plugins	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-implement-motion	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-shaders	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-spec	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-swiftui	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-use-figjam	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-use-motion	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-use-slides	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Figma MCP	figma-use	APPROVE	https://github.com/figma/mcp-server-guide
+Web-Design	Superdesign	superdesign	CAUTION	https://github.com/superdesigndev/superdesign-skill
+Web-Design	Watermelon UI	make-interfaces-feel-better	APPROVE	https://github.com/WatermelonCorp/watermelon-platform
+Web-Design	Watermelon UI	watermelon-ui	APPROVE	https://github.com/WatermelonCorp/watermelon-platform
+Web-Design	Web Asset Generator	web-asset-generator	APPROVE	https://github.com/alonw0/web-asset-generator
+Web-Design	Emil Kowalski Design Skills	animate-expo	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	animate	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	animation-performance	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	animation-vocabulary	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	apple-design	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	ask-sonner	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	break-ui	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	choreograph	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	emil-design-eng	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	find-animation-opportunities	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	improve-animations	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	mobile-native	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	pick-ui-library	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	prototype--Emil-Kowalski-Design-Skills	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	remove-animations	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	review-animations	APPROVE	https://github.com/emilkowalski/skills
+Web-Design	Emil Kowalski Design Skills	write-swift	APPROVE	https://github.com/emilkowalski/skills
+Docs-Writing	Frontend Slides	frontend-slides	APPROVE	https://github.com/zarazhangrui/frontend-slides
+Testing-Browser	iOS Simulator Skill	ios-simulator-skill	APPROVE	https://github.com/conorluddy/ios-simulator-skill
+Databases	Supabase Agent Skills	supabase-postgres-best-practices--Supabase-Agent-Skills	APPROVE	https://github.com/supabase/agent-skills
+Databases	Supabase Agent Skills	supabase--Supabase-Agent-Skills	APPROVE	https://github.com/supabase/agent-skills
+Marketing	Marketing Skills	ab-testing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	ad-creative	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	ads	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	ai-seo	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	analytics	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	aso	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	attribution	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	churn-prevention	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	co-marketing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	cold-email	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	community-marketing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	competitor-profiling	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	competitors	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	content-strategy	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	conversion-tracking	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	copy-editing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	copywriting	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	cro	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	customer-research	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	directory-submissions	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	emails	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	events	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	free-tools	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	image	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	influencer-marketing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	launch	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	lead-magnets	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	link-building	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	marketing-council	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	marketing-ideas	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	marketing-loops	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	marketing-plan	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	marketing-psychology	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	offers	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	onboarding	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	paywalls	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	popups	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	pricing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	product-marketing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	programmatic-seo	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	prospecting	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	public-relations	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	referrals	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	reverse-engineer-marketing	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	revops	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	sales-enablement	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	schema	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	seo-audit	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	signup	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	site-architecture	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	sms	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	social	APPROVE	https://github.com/coreyhaines31/marketingskills
+Marketing	Marketing Skills	video	APPROVE	https://github.com/coreyhaines31/marketingskills
+Creative-Media	HyperFrames	figma	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	hyperframes-cli	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	hyperframes-registry	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	hyperframes	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	media-use	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	remotion-to-hyperframes	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	reverse-any-video	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	slideshow	CAUTION	https://github.com/heygen-com/hyperframes
+Creative-Media	HyperFrames	style-sampling	CAUTION	https://github.com/heygen-com/hyperframes
+Research-Web	Find Skills	find-skills	CAUTION	https://github.com/vercel-labs/skills
+Memory-Context	Graphify	graphify	CAUTION	https://github.com/Graphify-Labs/graphify
+Security	SkillSpector	skill-inspector	APPROVE	https://github.com/NVIDIA/skillspector
+Coding-Workflow	Ponytail	ponytail-audit	APPROVE	https://github.com/DietrichGebert/ponytail
+Coding-Workflow	Ponytail	ponytail-debt	APPROVE	https://github.com/DietrichGebert/ponytail
+Coding-Workflow	Ponytail	ponytail-gain	APPROVE	https://github.com/DietrichGebert/ponytail
+Coding-Workflow	Ponytail	ponytail-help	APPROVE	https://github.com/DietrichGebert/ponytail
+Coding-Workflow	Ponytail	ponytail-review	APPROVE	https://github.com/DietrichGebert/ponytail
+Coding-Workflow	Ponytail	ponytail	APPROVE	https://github.com/DietrichGebert/ponytail
+Creative-Media	Lemo-Opuscar	lemo-opuscar	CAUTION	https://github.com/lemomo-ai/lemo-opuscar
+Research-Web	Agent Reach	agent-reach	CAUTION	https://github.com/Panniantong/Agent-Reach
